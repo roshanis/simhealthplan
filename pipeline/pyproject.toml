@@ -1,0 +1,40 @@
+[project]
+name = "simhealthplan-pipeline"
+version = "0.1.0"
+description = "Medicare Advantage plan-choice simulator — data ETL and simulation pipeline"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "httpx>=0.27",
+    "tenacity>=8.3",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "openai>=1.30",
+    "openpyxl>=3.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "config",
+    "ingest",
+    "parse",
+    "archetypes",
+    "choice_model",
+    "llm",
+    "backtest",
+    "export",
+]

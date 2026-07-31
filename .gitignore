@@ -1,0 +1,26 @@
+# Data (local pipeline artifacts)
+data/raw_cache/
+data/interim/
+
+# Env / secrets
+**/.env
+**/.env.local
+
+# Node / Next.js
+node_modules/
+.next/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# OS
+.DS_Store
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+.nyc_output/
