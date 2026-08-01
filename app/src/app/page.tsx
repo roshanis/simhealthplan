@@ -1,65 +1,145 @@
-import Image from "next/image";
+/**
+ * The Phase 7 leadership report: verdict, share-shift chart, persona
+ * cards, market snapshot, and methodology, in that order. Server component
+ * -- every artifact below is a build-time static import (`lib/data/loaders.ts`),
+ * so this route renders fully server-side with zero request-time I/O and
+ * zero environment variables required.
+ *
+ * Chart-form note (ShareShiftChart): hand-rolled SVG rather than Recharts.
+ * Recharts' grouped/composed-chart primitives are built around one series
+ * per array of {x,y} points rendered independently; this chart needed one
+ * connector line PER ROW between two points from two different series, a
+ * third muted reference tick per row, and a full-row (not just per-dot)
+ * hover/focus target with a custom multi-value tooltip. That's readily
+ * expressible as a dumbbell plot hand-rolled in SVG (React owns the DOM,
+ * no imperative chart library state to fight) but awkward to compose from
+ * Recharts' <Line>/<Scatter>/<ReferenceLine> building blocks without
+ * fighting its per-series data model. Recharts was not added as a
+ * dependency for this one chart as a result -- noted here per the task's
+ * "note it" instruction.
+ */
 
-export default function Home() {
+import Link from "next/link";
+
+import { LiveLlmButton } from "@/components/report/LiveLlmButton";
+import { MarketSnapshot } from "@/components/report/MarketSnapshot";
+import { Methodology } from "@/components/report/Methodology";
+import { PersonaCards } from "@/components/report/PersonaCards";
+import { ShareShiftChart } from "@/components/report/ShareShiftChart";
+import { VerdictSection } from "@/components/report/VerdictSection";
+import { archetypesDisplay, backtest, market, personas } from "@/lib/data/loaders";
+import { formatCount } from "@/lib/format";
+import { buildMarketFacts } from "@/lib/report/marketFacts";
+import { buildPersonaCards, buildPersonaLookup, buildPlanLookup } from "@/lib/report/personas";
+import { bestNaiveVariant, buildShareShiftRows } from "@/lib/report/shareShift";
+
+const AGE_BAND_DISPLAY_ORDER = ["65-69 years", "70-74 years", "75-84 years", "85+"];
+
+export default function ReportPage() {
+  const summary = backtest.summary;
+  const naiveVariant = bestNaiveVariant(summary);
+  const shareShiftRows = buildShareShiftRows(backtest.per_plan, naiveVariant, 15);
+  const namedPlanRowCount = shareShiftRows.filter((row) => !row.isAggregate).length;
+
+  const plansByKey = buildPlanLookup(market.plans["2024"] ?? []);
+  const personaByArchetypeId = buildPersonaLookup(personas.personas);
+  const personaCards = buildPersonaCards(archetypesDisplay.archetypes, plansByKey, personaByArchetypeId);
+
+  const segments = [...new Set(personaCards.map((c) => c.segmentLabel))].sort();
+  const ageBands = AGE_BAND_DISPLAY_ORDER.filter((band) => personaCards.some((c) => c.ageBandLabel === band));
+
+  const marketFacts = buildMarketFacts(market);
+  const years = Object.keys(market.plans).sort();
+
+  const liveLlmEnabled = process.env.ENABLE_LIVE_LLM === "true";
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 py-10 sm:px-8">
+      <header className="flex flex-col gap-4">
+        <nav className="flex items-center justify-between text-sm" style={{ color: "var(--text-secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--text-primary)" }}>
+            simhealthplan
+          </span>
+          <Link href="/scenario" className="rounded-md border px-3 py-1.5" style={{ borderColor: "var(--border)" }}>
+            Live scenario demo →
+          </Link>
+        </nav>
+        <div className="flex flex-col gap-3">
+          <p className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
+            Medicare Advantage plan-design pilot · Maricopa County, AZ · 2024 → 2025
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight" style={{ color: "var(--text-primary)" }}>
+            Did a persona-grounded choice model predict last AEP&rsquo;s actual plan-share shifts?
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-3xl text-base" style={{ color: "var(--text-secondary)" }}>
+            {formatCount(market.market_totals["2024"]?.eligibles ?? 0)} synthetic Medicare-eligible beneficiaries,
+            modeled as {archetypesDisplay.metadata.archetype_count} weighted archetypes, choosing among{" "}
+            {market.market_totals["2024"]?.plan_count} (2024) → {market.market_totals["2025"]?.plan_count} (2025)
+            real Medicare Advantage plans -- backtested against actual CMS enrollment.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      <VerdictSection summary={summary} />
+
+      <section aria-labelledby="share-shift-heading" className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <h2 id="share-shift-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
+            Where the model called it right (and wrong)
+          </h2>
+          <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
+            The {namedPlanRowCount} plans with the largest 2024 enrollment
+            {shareShiftRows.length > namedPlanRowCount ? ", plus every remaining plan aggregated into one row" : ""}.
+            Each row compares the model&rsquo;s predicted 2024→2025 share shift against what actually happened, with
+            the best naive baseline ({naiveVariant === "no_change" ? "no change" : "trend"}) shown as a reference
+            tick.
+          </p>
         </div>
-      </main>
+        <ShareShiftChart rows={shareShiftRows} bestNaive={naiveVariant} />
+      </section>
+
+      <section aria-labelledby="personas-heading" className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <h2 id="personas-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
+            Meet the market
+          </h2>
+          <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
+            {archetypesDisplay.metadata.archetype_count} weighted synthetic archetypes stand in for Maricopa
+            County&rsquo;s Medicare-eligible population -- built from Census ACS demographics and national MCBS
+            attitude segments (see Methodology for what that does and doesn&rsquo;t capture).
+          </p>
+          {liveLlmEnabled && <LiveLlmButton />}
+        </div>
+        <PersonaCards
+          cards={personaCards}
+          personasAvailable={personas.available}
+          segments={segments}
+          ageBands={ageBands}
+        />
+      </section>
+
+      <section aria-labelledby="market-heading" className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <h2 id="market-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
+            The world the personas live in
+          </h2>
+          <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
+            The full Maricopa County Medicare Advantage roster both years, sourced from CMS Landscape + PBP benefits
+            files.
+          </p>
+        </div>
+        <MarketSnapshot plansByYear={market.plans} facts={marketFacts} years={years} />
+      </section>
+
+      <Methodology />
+
+      <footer className="border-t pt-6 text-xs" style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}>
+        Public CMS/Census data only. Fixed seed (42) throughout. See{" "}
+        <Link href="/scenario" className="underline">
+          the live scenario demo
+        </Link>{" "}
+        to run counterfactual plan-design changes against this same model.
+      </footer>
     </div>
   );
 }

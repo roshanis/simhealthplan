@@ -1,8 +1,82 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens -- the dataviz skill's reference palette
+ * (`references/palette.md`), validated with `scripts/validate_palette.js`
+ * (categorical [series-1, series-2] pass every check in both modes; status
+ * tokens are the fixed, reserved scale). Only the roles this app actually
+ * uses are declared. Dark values swap in this one place via
+ * `prefers-color-scheme` -- no separate dark stylesheet, no JS toggle (this
+ * app follows the OS setting only, per the Phase 7 spec).
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --page-plane: #f9f9f7;
+  --surface-1: #fcfcfb;
+  --surface-2: #f3f2ef;
+
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  /* 5.2:1 vs --surface-1 (#fcfcfb); the previous #898781 measured 3.5:1,
+     failing WCAG AA for the body-size content this token is used on. */
+  --text-muted: #6d6b65;
+
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.1);
+
+  --series-1: #2a78d6; /* blue -- "Predicted" / model / accent */
+  --series-2: #008300; /* green -- "Actual" */
+
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --success-text: #006300;
+
+  /* Text placed directly on a solid --series-1 fill (buttons, active
+   * toggles). Pure black rather than --text-primary: --text-primary flips
+   * to white in dark mode, which fails contrast against --series-1 there
+   * (white/#3987e5 = 3.64:1); black clears AA against --series-1 in both
+   * modes (4.76:1 light / 5.77:1 dark) since --series-1 never gets dark
+   * enough itself to need a light foreground. */
+  --on-accent-text: #000000;
+
+  --background: var(--page-plane);
+  --foreground: var(--text-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --page-plane: #0d0d0d;
+    --surface-1: #1a1a19;
+    --surface-2: #232322;
+
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+
+    --gridline: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+
+    --series-1: #3987e5;
+    --series-2: #008300;
+
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+    --status-serious: #ec835a;
+    --status-critical: #d03b3b;
+    --success-text: #0ca30c;
+
+    --on-accent-text: #000000;
+
+    --background: var(--page-plane);
+    --foreground: var(--text-primary);
+  }
 }
 
 @theme inline {
@@ -12,15 +86,45 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Native <details>/<summary> accordion chevron, shared by the methodology
+ * section -- kept in globals.css (rather than inline) since the ::marker /
+ * ::-webkit-details-marker reset needs a real stylesheet rule. */
+.accordion-item > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.accordion-item > summary::-webkit-details-marker {
+  display: none;
+}
+.accordion-item > summary::marker {
+  content: "";
+}
+.accordion-chevron {
+  transition: transform 0.15s ease;
+}
+.accordion-item[open] > summary .accordion-chevron {
+  transform: rotate(90deg);
+}
+
+/* Wide tables/charts scroll within their own container, never the page. */
+.scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

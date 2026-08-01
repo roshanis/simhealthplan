@@ -1,0 +1,3296 @@
+{
+  "archetypes": [
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-hispanic-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0110470143,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 8524.936743
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0119182536,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 9197.268597
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-hispanic-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0073634298,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 5682.329292
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-hispanic-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0092917415,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 7170.399781
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0188917137,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 14578.659897
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0185797428,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 14337.913222
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.020045062,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 15468.694138
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0123843989,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 9556.991065
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-higher-white-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0156275862,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 12059.74577
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": true,
+      "id": "a65_69-low-hispanic-price_sensitive",
+      "prior_outside_share": 0.2821305178,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0082221005,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3084306331
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0509369667
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359253087
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318860807
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.029592799
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "recently Medicare-eligible; still comparing plans against employer-era habits"
+      ],
+      "weight": 6344.962038
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": true,
+      "id": "a65_69-low-mixed-mixed",
+      "prior_outside_share": 0.3706285429,
+      "segment": "mixed",
+      "share_of_population": 0.0229545631,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "recently Medicare-eligible; still comparing plans against employer-era habits"
+      ],
+      "weight": 17713.944551
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a65_69-low-white-benefit_maximizer",
+      "prior_outside_share": 0.2819937498,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.006172286,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3082811156
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.050912274
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359078933
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318706234
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0295784534
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "recently Medicare-eligible; still comparing plans against employer-era habits"
+      ],
+      "weight": 4763.12841
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a65_69-low-white-health_status_driven",
+      "prior_outside_share": 0.3706285429,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0069003471,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "recently Medicare-eligible; still comparing plans against employer-era habits"
+      ],
+      "weight": 5324.970267
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a65_69-low-white-price_sensitive",
+      "prior_outside_share": 0.2821305178,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0138285792,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3084306331
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0509369667
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359253087
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318860807
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.029592799
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "recently Medicare-eligible; still comparing plans against employer-era habits"
+      ],
+      "weight": 10671.459253
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-hispanic-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0109831175,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 8475.627853
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0118493175,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 9144.070889
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-hispanic-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0073208391,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 5649.462262
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-hispanic-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0092379974,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 7128.925637
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0187824426,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 14494.335807
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0184722762,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 14254.981629
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0199291198,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 15379.222022
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0123127665,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 9501.712694
+    },
+    {
+      "demographics": {
+        "age_band": "65-69",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a65_69-middle-white-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0155371951,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "recently Medicare-eligible; still comparing plans against employer-era habits",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 11989.991272
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-hispanic-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0096564709,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 7451.859951
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0104180429,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 8039.562003
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-hispanic-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0064365577,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 4967.065839
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-hispanic-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0081221432,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 6267.825389
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0165137184,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 12743.570433
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0162410169,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 12533.127756
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0175218889,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 13521.571574
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0108255121,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 8354.004389
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-higher-white-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0136604631,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "established Medicare beneficiary with a few years of plan experience",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 10541.724733
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": true,
+      "id": "a70_74-low-hispanic-price_sensitive",
+      "prior_outside_share": 0.2821305178,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0071871432,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3084306331
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0509369667
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359253087
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318860807
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.029592799
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "established Medicare beneficiary with a few years of plan experience"
+      ],
+      "weight": 5546.289658
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": true,
+      "id": "a70_74-low-mixed-mixed",
+      "prior_outside_share": 0.3706285429,
+      "segment": "mixed",
+      "share_of_population": 0.0200651565,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "established Medicare beneficiary with a few years of plan experience"
+      ],
+      "weight": 15484.200991
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a70_74-low-white-benefit_maximizer",
+      "prior_outside_share": 0.2819937498,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0053953492,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3082811156
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.050912274
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359078933
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318706234
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0295784534
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "established Medicare beneficiary with a few years of plan experience"
+      ],
+      "weight": 4163.569409
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a70_74-low-white-health_status_driven",
+      "prior_outside_share": 0.3706285429,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0060317656,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "established Medicare beneficiary with a few years of plan experience"
+      ],
+      "weight": 4654.689397
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a70_74-low-white-price_sensitive",
+      "prior_outside_share": 0.2821305178,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0120879062,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3084306331
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0509369667
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359253087
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318860807
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.029592799
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "established Medicare beneficiary with a few years of plan experience"
+      ],
+      "weight": 9328.188844
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-hispanic-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0096006171,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 7408.757819
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0103577841,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 7993.060558
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-hispanic-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0063993282,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 4938.335948
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-hispanic-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0080751641,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 6231.571805
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0164182018,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 12669.860641
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0161470776,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 12460.635181
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0174205409,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 13443.361764
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0107628965,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 8305.684185
+    },
+    {
+      "demographics": {
+        "age_band": "70-74",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a70_74-middle-white-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0135814499,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "established Medicare beneficiary with a few years of plan experience",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 10480.750587
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-hispanic-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0085251222,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 6578.802726
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0131609334,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 10156.239683
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-hispanic-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0120377921,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 9289.515999
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-hispanic-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0059713217,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 4608.045072
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0189273464,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 14606.15751
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0143382252,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 11064.751028
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0221350993,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 17081.567597
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0202461113,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 15623.843119
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-higher-white-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0100430414,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "older senior; increasing focus on health and functional needs",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 7750.174852
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": true,
+      "id": "a75_84-low-hispanic-health_status_driven",
+      "prior_outside_share": 0.3706285429,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0056661793,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "older senior; increasing focus on health and functional needs"
+      ],
+      "weight": 4372.567918
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": true,
+      "id": "a75_84-low-hispanic-price_sensitive",
+      "prior_outside_share": 0.2821305178,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0068881294,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3084306331
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0509369667
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359253087
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318860807
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.029592799
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "older senior; increasing focus on health and functional needs"
+      ],
+      "weight": 5315.541912
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": true,
+      "id": "a75_84-low-mixed-mixed",
+      "prior_outside_share": 0.3706285429,
+      "segment": "mixed",
+      "share_of_population": 0.0191637436,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "older senior; increasing focus on health and functional needs"
+      ],
+      "weight": 14788.58427
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a75_84-low-white-benefit_maximizer",
+      "prior_outside_share": 0.2819937498,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0053545376,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3082811156
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.050912274
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359078933
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318706234
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0295784534
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "older senior; increasing focus on health and functional needs"
+      ],
+      "weight": 4132.075226
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a75_84-low-white-health_status_driven",
+      "prior_outside_share": 0.3706285429,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0095298288,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "older senior; increasing focus on health and functional needs"
+      ],
+      "weight": 7354.130741
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": true,
+      "id": "a75_84-low-white-price_sensitive",
+      "prior_outside_share": 0.2821305178,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0115850011,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.3084306331
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0509369667
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0359253087
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0318860807
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.029592799
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "older senior; increasing focus on health and functional needs"
+      ],
+      "weight": 8940.099025
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-hispanic-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0084758123,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 6540.750425
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0130848096,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 10097.495212
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-hispanic-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0119681646,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 9235.784724
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-hispanic-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0059367831,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 4581.391785
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0188178692,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 14521.674372
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0142552918,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 11000.751657
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0220070682,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 16982.766496
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0201290063,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 15533.473608
+    },
+    {
+      "demographics": {
+        "age_band": "75-84",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a75_84-middle-white-price_sensitive",
+      "prior_outside_share": 0.5412387865,
+      "segment": "price_sensitive",
+      "share_of_population": 0.0099849516,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0689190615
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611702122
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369589482
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0280259057
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0279374598
+        }
+      ],
+      "traits": [
+        "very price-conscious",
+        "watches premiums and out-of-pocket costs closely",
+        "willing to switch plans for meaningful savings",
+        "older senior; increasing focus on health and functional needs",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 7705.347245
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "higher",
+        "race_eth": "hispanic"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-higher-hispanic-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0049183853,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 3795.498266
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "higher",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-higher-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0207426872,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 16007.048777
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-higher-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.0053583522,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 4135.018929
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-higher-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.0082721296,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 6383.569334
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "higher",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-higher-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0075661941,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "financially comfortable; premium is a secondary concern"
+      ],
+      "weight": 5838.801694
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "low_dual_proxy",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": true,
+      "id": "a85_plus-low-mixed-mixed",
+      "prior_outside_share": 0.3706285429,
+      "segment": "mixed",
+      "share_of_population": 0.0217452776,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0321-002",
+          "prior_prob": 0.2701189436
+        },
+        {
+          "plan_key": "H5580-001",
+          "prior_prob": 0.0446098349
+        },
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.031462849
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0279253534
+        },
+        {
+          "plan_key": "H5590-008",
+          "prior_prob": 0.0259169316
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support"
+      ],
+      "weight": 16780.743711
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "middle",
+        "race_eth": "mixed"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-middle-mixed-mixed",
+      "prior_outside_share": 0.6382073353,
+      "segment": "mixed",
+      "share_of_population": 0.0255126469,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "attitude profile spans multiple segments (aggregated catch-all archetype)",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 19688.007588
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-middle-white-benefit_maximizer",
+      "prior_outside_share": 0.5407356695,
+      "segment": "benefit_maximizer",
+      "share_of_population": 0.005327359,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0688549967
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0611133505
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.0369245924
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0279998538
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.02791149
+        }
+      ],
+      "traits": [
+        "strongly values dental/vision/hearing extras",
+        "prioritizes rich supplemental benefits and OTC/flex allowances",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 4111.101662
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-middle-white-brand_loyal",
+      "prior_outside_share": 0.6382073353,
+      "segment": "brand_loyal",
+      "share_of_population": 0.008224283,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "loyal to their current plan and provider relationships",
+        "satisfied with current care, slow to switch",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 6346.646278
+    },
+    {
+      "demographics": {
+        "age_band": "85+",
+        "income_tier": "middle",
+        "race_eth": "white_nh"
+      },
+      "dual_proxy": false,
+      "id": "a85_plus-middle-white-health_status_driven",
+      "prior_outside_share": 0.6382073353,
+      "segment": "health_status_driven",
+      "share_of_population": 0.0075224306,
+      "top_prior_plans": [
+        {
+          "plan_key": "H0609-027",
+          "prior_prob": 0.0541777513
+        },
+        {
+          "plan_key": "H0028-052",
+          "prior_prob": 0.0480863273
+        },
+        {
+          "plan_key": "H0354-028",
+          "prior_prob": 0.029053685
+        },
+        {
+          "plan_key": "H0609-026",
+          "prior_prob": 0.0220313585
+        },
+        {
+          "plan_key": "H2406-061",
+          "prior_prob": 0.0219618305
+        }
+      ],
+      "traits": [
+        "plan choice driven by ongoing health needs",
+        "values broad provider access and care coordination",
+        "oldest-old (85+); likely values simplicity, care coordination, and caregiver support",
+        "middle income; balances premium cost against benefit richness"
+      ],
+      "weight": 5805.029616
+    }
+  ],
+  "metadata": {
+    "archetype_count": 80,
+    "outside_option_key": "other_or_no_ma_2024",
+    "population_total": 771696.0,
+    "top_prior_plans_n": 5
+  }
+}
