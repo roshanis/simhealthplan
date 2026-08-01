@@ -139,12 +139,12 @@ def test_download_file_is_idempotent_across_runs(tmp_path):
     client = _mock_client(b"content")
 
     r1 = download_file(
-        dataset="dataset_a", url="https://x/file.zip", dest=dest,
+        dataset="dataset_a", url="https://www.cms.gov/x/file.zip", dest=dest,
         client=client, manifest_path=manifest_path,
     )
     client2 = _mock_client(b"content")
     r2 = download_file(
-        dataset="dataset_a", url="https://x/file.zip", dest=dest,
+        dataset="dataset_a", url="https://www.cms.gov/x/file.zip", dest=dest,
         client=client2, manifest_path=manifest_path,
     )
 
@@ -159,7 +159,44 @@ def test_download_file_raises_on_http_error_status(tmp_path):
 
     with pytest.raises(httpx.HTTPStatusError):
         download_file(
-            dataset="dataset_a", url="https://x/missing.zip", dest=dest,
+            dataset="dataset_a", url="https://www.cms.gov/x/missing.zip", dest=dest,
             client=client, manifest_path=manifest_path,
         )
     assert not dest.exists()
+
+
+class TestHostAllowlist:
+    def test_allowed_host_passes(self):
+        from ingest.base import _check_host_allowed
+
+        _check_host_allowed("https://www.cms.gov/files/zip/foo.zip")
+        _check_host_allowed("https://www2.census.gov/programs-surveys/acs/x.dat")
+
+    def test_disallowed_host_raises(self, tmp_path):
+        import pytest
+
+        from ingest.base import DisallowedHostError, download_file
+
+        with pytest.raises(DisallowedHostError):
+            download_file(
+                dataset="evil",
+                url="https://evil.example.com/payload.zip",
+                dest=tmp_path / "payload.zip",
+                manifest_path=tmp_path / "manifest.json",
+            )
+
+    def test_cached_file_skips_check(self, tmp_path):
+        # cache-first: an existing dest is re-recorded without any network
+        # call, so the allowlist (a network guard) must not break warm reruns
+        # even if the recorded URL's host later left the allowlist.
+        from ingest.base import download_file
+
+        dest = tmp_path / "cached.zip"
+        dest.write_bytes(b"cached-bytes")
+        record = download_file(
+            dataset="cached",
+            url="https://evil.example.com/cached.zip",
+            dest=dest,
+            manifest_path=tmp_path / "manifest.json",
+        )
+        assert record.skipped_cached is True

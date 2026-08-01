@@ -22,7 +22,7 @@ import re
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import httpx
 from bs4 import BeautifulSoup
@@ -149,6 +149,36 @@ def _stream_download(client: httpx.Client, url: str, dest: Path) -> None:
     tmp.replace(dest)
 
 
+# File URLs are resolved by scraping landing pages (find_links), so constrain
+# where a scraped href may actually send a download: a compromised or malformed
+# source page must not be able to redirect the pipeline to an arbitrary host.
+ALLOWED_DOWNLOAD_HOSTS = frozenset(
+    {
+        "cms.gov",
+        "www.cms.gov",
+        "data.cms.gov",
+        "www2.census.gov",
+        "data.census.gov",
+        "api.census.gov",
+        "data.nber.org",
+    }
+)
+
+
+class DisallowedHostError(ValueError):
+    """Raised when a resolved download URL points outside ALLOWED_DOWNLOAD_HOSTS."""
+
+
+def _check_host_allowed(url: str) -> None:
+    host = (urlparse(url).hostname or "").lower()
+    if host not in ALLOWED_DOWNLOAD_HOSTS:
+        raise DisallowedHostError(
+            f"Refusing to download from {host!r} ({url}): not in "
+            f"ALLOWED_DOWNLOAD_HOSTS. If a data source legitimately moved, "
+            f"add its host to pipeline/ingest/base.py explicitly."
+        )
+
+
 def download_file(
     dataset: str,
     url: str,
@@ -165,6 +195,8 @@ def download_file(
     If ``dest`` already exists and ``force`` is False, no network request is
     made — the existing file is re-hashed and re-recorded (idempotent
     re-runs, e.g. rerunning ``make ingest`` after a partial prior run).
+    Network downloads are restricted to ALLOWED_DOWNLOAD_HOSTS; the guard
+    sits on the network path only, so cache-hit reruns never re-check.
     """
     manifest = load_manifest(manifest_path)
     ds_entries = manifest.setdefault(dataset, {})
@@ -187,6 +219,7 @@ def download_file(
         save_manifest(manifest, manifest_path)
         return record
 
+    _check_host_allowed(url)
     owns_client = client is None
     c = client or _make_client(timeout)
     try:
