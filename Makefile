@@ -23,10 +23,12 @@ ingest:
 	cd pipeline && uv run python -m ingest.run_all
 	cd pipeline && uv run python -m parse.run_all
 
-## --- Later-phase placeholders (not implemented yet) ---
-
+## Build synthetic-population archetypes (data/processed/archetypes.json)
+## from Phase 1 interim data.
 archetypes:
-	@echo "archetypes: not implemented yet"
+	cd pipeline && uv run python -m archetypes.build_archetypes
+
+## --- Later-phase placeholders (not implemented yet) ---
 
 calibrate:
 	@echo "calibrate: not implemented yet"

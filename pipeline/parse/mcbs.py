@@ -15,7 +15,8 @@ This module does NOT build consumer segments (that's Phase 2). It:
      health_status, satisfaction. Writes the match set as JSON
      (data/interim/mcbs_variable_inventory.json).
   3. Slims the full CSV down to the union of matched candidate columns
-     (capped at ~60) plus identifiers/weights, written to
+     (capped at ~60) plus identifiers/weights/demographic-conditioning
+     columns (DEM_AGE, DEM_INCOME -- see ALWAYS_KEEP_COLUMNS), written to
      data/interim/mcbs_subset.parquet. The full CSV stays in raw_cache only.
 
 Codebook text format (fixed-width-ish; verified against the real file):
@@ -65,7 +66,17 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
 
 # Identifiers / survey weights always kept in the subset regardless of
 # whether they matched a keyword category.
-ALWAYS_KEEP_COLUMNS = ["PUF_ID", "SURVEYYR", "VERSION"]
+#
+# DEM_AGE ("Age group": <65 / 65-74 / 75+) and DEM_INCOME ("Income group":
+# <$25,000 / >=$25,000) are demographic *conditioning* variables, not
+# attitude-content candidates -- they deliberately don't match any
+# CATEGORY_KEYWORDS (which target price/benefit/switching/health/satisfaction
+# language, not "age"/"income"). Phase 2 (archetypes/mcbs_segments.py) needs
+# them to condition the national attitude-segment distribution on age band x
+# income tier, matching the strata available from ACS. Kept here rather than
+# read ad hoc from raw_cache so mcbs_subset.parquet stays the single source
+# of truth for downstream phases.
+ALWAYS_KEEP_COLUMNS = ["PUF_ID", "SURVEYYR", "VERSION", "DEM_AGE", "DEM_INCOME"]
 PRIMARY_WEIGHT_COLUMN = "PUFFWGT"
 
 _VARIABLE_LINE_RE = re.compile(r"^\S")
