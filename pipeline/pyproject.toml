@@ -13,6 +13,9 @@ dependencies = [
     "pydantic-settings>=2.3",
     "openai>=1.30",
     "openpyxl>=3.1",
+    "pyarrow>=25.0.0",
+    "beautifulsoup4>=4.15.0",
+    "xlrd>=2.0.2",
 ]
 
 [dependency-groups]
@@ -22,6 +25,9 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "integration: requires real downloaded artifacts in data/raw_cache; skips cleanly when absent",
+]
 
 [build-system]
 requires = ["hatchling"]

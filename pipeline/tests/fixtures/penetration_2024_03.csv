@@ -1,0 +1,4 @@
+"State Name","County Name","FIPSST","FIPSCNTY","FIPS","SSAST","SSACNTY","SSA","Eligibles","Enrolled","Penetration"
+"Pending State Designation","Pending County Designation","00","000","00000","00","999","00999","14,821","",""
+"Alabama","Autauga","01","001","01001","01","000","01000","11,859","7,162","60.39%"
+"Arizona","Maricopa","04","013","04013","03","060","03060","771,696","399,246","51.74%"

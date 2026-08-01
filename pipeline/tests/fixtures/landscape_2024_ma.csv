@@ -1,0 +1,7 @@
+State,County,Organization Name,Plan Name,Type of Medicare Health Plan,Monthly Consolidated Premium (Includes Part C + D),Annual Drug Deductible,Drug Benefit Type,Drug Benefit Type Detail,Additional Coverage Offered in the Gap,Contract ID,Plan ID,Segment ID,In-network MOOP Amount **,2024 Overall Star Rating
+Alabama,Autauga,Blue Cross and Blue Shield of Alabama,Blue Advantage Complete (PPO),Local PPO,$0.00 ,$0.00 ,Enhanced,EA,Yes,H0104,012,0,"$5,100.00 ",4.0
+Arizona,Maricopa,Humana,Humana Gold Plus H0028-023 (HMO),Local HMO,$37.00 ,$225.00 ,Enhanced,EA,No,H0028,023,0,"$6,700.00 ",4.0
+Arizona,Maricopa,Humana,Humana Gold Plus H0028-027 (HMO),Local HMO,$0.00 ,$0.00 ,Enhanced,EA,No,H0028,027,0,"$4,500.00 ",4.0
+Arizona,Maricopa,Blue Cross Blue Shield of Arizona (AZ Blue),Blue Best Life Plus (HMO),Local HMO,$45.00 ,$0.00 ,Enhanced,EA,No,H0302,001,0,"$2,500.00 ",4.0
+Arizona,Maricopa,eternalHealth,eternalHealth Valor Give Back (HMO-POS),Local HMO,$0.00 ,,,,,H3551,003,0,,Plan too new to be measured
+Arizona,Pima,UnitedHealthcare,AARP Medicare Advantage Choice (PPO),Local PPO,$12.00 ,$100.00 ,Basic,DS,No,H0432,009,0,"$5,900.00 ",3.5

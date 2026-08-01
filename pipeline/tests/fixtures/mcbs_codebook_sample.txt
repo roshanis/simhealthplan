@@ -1,0 +1,30 @@
+Variable           Format    Q#/Freq             Description/Label
+
+PUF_ID             PUFFMT                        Unique PUF Identification Number
+                             13,016    LOW-HIGH          PUF_ID Count
+
+SURVEYYR           SVYRFMT                       Survey year
+                             13,016                2023  2023
+         Notes:  Previously named SVYYR.
+
+ACC_MCQUALTY       SATFFMT   SC1                 Satisfaction: qual of med care last year
+                              6,359                   1  1:Very Satisfied
+                              5,747                   2  2:Satisfied
+                                540                   3  3:Dissatisfied
+                                157                   4  4:Very Dissatisfied
+
+ACC_HCDELAY        YESFMT    HFAC31              Last year ever delay in care due to cost
+                              9,000                   1  1:Yes
+                              4,000                   2  2:No
+
+HLT_GENHELTH       GENHFMT   HFA1                General health compared others same age
+                              9,000                   1  1:Excellent
+
+MA_MADVPAY         YESFMT    HIMC11              Ever pay additional for Mcare Adv cvg
+                              2,000                   1  1:Yes
+
+MA_RECMADV         YESFMT    HIMC19              Recommend Mcare Adv to family/friends
+                              3,000                   1  1:Yes
+
+PUFFWGT                                          PUF Fall Ever Enrolled Full Sample Wt
+                             13,016    LOW-HIGH          PUFFWGT Range

@@ -1,0 +1,4 @@
+State Name,County Name,FIPSST,FIPSCNTY,FIPS,SSAST,SSACNTY,SSA,Eligibles,Enrolled,Penetration
+Pending State Designation,Pending County Designation,0,0,0,0,999,999,"14,896",,
+Alabama,Autauga,1,1,1001,1,0,1000,"12,116","7,398",61.06%
+Arizona,Maricopa,4,13,4013,3,60,3060,"790,307","410,634",51.96%

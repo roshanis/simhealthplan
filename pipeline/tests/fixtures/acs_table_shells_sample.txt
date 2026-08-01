@@ -1,0 +1,4 @@
+Table ID|Line|Indent|Unique ID|Label|Title|Universe|Type
+B01001|1.0|0|B01001_001|Total:|Sex by Age|Total population|int
+B01001|2.0|1|B01001_002|Male:|Sex by Age|Total population|int
+B01001|3.0|2|B01001_003|Under 5 years|Sex by Age|Total population|int

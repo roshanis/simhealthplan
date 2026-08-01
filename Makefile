@@ -15,10 +15,15 @@ app-test:
 app-build:
 	cd app && npm run build
 
-## --- Pipeline stage placeholders (not implemented yet) ---
+## --- Pipeline stages ---
 
+## Download all Phase 1 source data (cache-first, idempotent) and parse it
+## into validated Maricopa-focused interim tables (data/interim/*.parquet).
 ingest:
-	@echo "ingest: not implemented yet"
+	cd pipeline && uv run python -m ingest.run_all
+	cd pipeline && uv run python -m parse.run_all
+
+## --- Later-phase placeholders (not implemented yet) ---
 
 archetypes:
 	@echo "archetypes: not implemented yet"

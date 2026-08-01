@@ -41,6 +41,11 @@ class Settings(BaseSettings):
     OPENAI_MODEL_REPORT: str = "gpt-5.6-luna"
     MAX_LLM_CALLS: int = 500
 
+    # --- External data API keys ---------------------------------------------
+    # Required as of 2026-05 for api.census.gov (keyless requests now 302 to
+    # a "Missing Key" page). Get one at https://api.census.gov/data/key_signup.html
+    CENSUS_API_KEY: str | None = None
+
     # --- Data directories (repo-root-relative) ------------------------------
     DATA_DIR: Path = REPO_ROOT / "data"
     RAW_CACHE_DIR: Path = REPO_ROOT / "data" / "raw_cache"

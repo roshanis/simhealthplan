@@ -1,0 +1,7 @@
+PREVIOUS_CONTRACT_ID	PREVIOUS_PLAN_ID	PREVIOUS_PLAN_NAME	PREVIOUS_SNP_TYPE	PREVIOUS_SNP_INSTITUTIONAL	CURRENT_CONTRACT_ID	CURRENT_PLAN_ID	CURRENT_PLAN_NAME	CURRENT_SNP_TYPE	CURRENT_SNP_INSTITUTIONAL	STATUS
+H0028	023	Humana Gold Plus H0028-023 (HMO)			H0028	023	Humana Gold Plus H0028-023 (HMO)			Renewal Plan
+H0028	052	Humana Gold Plus H0028-052 (HMO)			H0028	074	Humana Gold Plus H0028-074 (HMO)			Renewal Plan
+H0294	017	AARP Medicare Advantage from UHC MI-0001 (PPO)			H0294	017	AARP Medicare Advantage from UHC MI-0001 (PPO)			Consolidated Renewal Plan
+H0028	050	Humana Gold Plus - Diabetes and Heart (HMO C-SNP)	Chronic or Disabling Condition		TERMINATED	TERMINATED	TERMINATED			Terminated/Non-renewed Contract
+H0028	NEW	NEW			H0028	065	Humana Gold Plus Giveback H0028-065 (HMO)			New Plan
+H9999	001	Some Other State Plan (HMO)			H9999	001	Some Other State Plan (HMO)			Renewal Plan
