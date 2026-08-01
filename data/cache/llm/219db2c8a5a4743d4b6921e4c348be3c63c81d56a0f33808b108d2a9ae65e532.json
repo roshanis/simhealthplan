@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-middle-white-price_sensitive\nAge band: 65-69\nIncome tier: middle\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: price_sensitive\nTraits: very price-conscious; watches premiums and out-of-pocket costs closely; willing to switch plans for meaningful savings; recently Medicare-eligible; still comparing plans against employer-era habits; middle income; balances premium cost against benefit richness"
+  },
+  "response": {
+    "backstory": "Elliot Mercer is a fictional 67-year-old Medicare beneficiary living in Maricopa County, Arizona, with a middle income that covers regular expenses but leaves little room for unexpected medical bills. Recently eligible for Medicare, he still compares coverage with the straightforward employer insurance he had before retiring and carefully tracks premiums, deductibles, copayments, and annual out-of-pocket limits. He is willing to switch plans when the savings are meaningful, though he does not want to give up practical benefits or reliable access to routine care. In day-to-day life, Elliot values predictable costs, financial breathing room, and a Medicare Advantage plan that offers solid coverage without paying for extras he is unlikely to use.",
+    "name": "Elliot Mercer"
+  },
+  "response_id": "chatcmpl-E865ZKQs6Z4vODlIw2WD3IMqSOm0n",
+  "created_at": "2026-08-01T15:39:00+00:00"
+}

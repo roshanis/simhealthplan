@@ -53,5 +53,6 @@ backtest:
 
 ## --- Later-phase placeholders (not implemented yet) ---
 
+## Export trimmed, UI-ready JSON bundles from data/processed into app/src/data.
 export:
-	@echo "export: not implemented yet"
+	cd pipeline && uv run python -m export.export_artifacts

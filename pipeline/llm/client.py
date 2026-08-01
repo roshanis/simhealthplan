@@ -36,7 +36,7 @@ full county simulation):
 
 Determinism note
 -----------------
-All requests use ``temperature=0`` and are cache-first, so a pipeline rerun
+All requests are cache-first, so a pipeline rerun
 against a warm (committed) cache is byte-for-byte deterministic: no network
 call and no ``OpenAI()`` construction ever happens. Regenerating the cache
 (e.g. after a prompt or model change) can change an individual LLM
@@ -162,7 +162,14 @@ class LLMClient:
         max_calls: int | None = None,
     ) -> None:
         self._client = client
-        self._client_factory = client_factory or openai.OpenAI
+        # Default factory must pass the key from pydantic settings (loaded
+        # from pipeline/.env): bare openai.OpenAI() only reads the process
+        # environment variable and fails when the key lives in .env.
+        self._client_factory = client_factory or (
+            lambda: openai.OpenAI(api_key=settings.OPENAI_API_KEY)
+            if settings.OPENAI_API_KEY
+            else openai.OpenAI()
+        )
         self.model = model or settings.OPENAI_MODEL
         self.cache_dir = Path(cache_dir) if cache_dir is not None else settings.LLM_CACHE_DIR
         self.max_calls = settings.MAX_LLM_CALLS if max_calls is None else max_calls
@@ -226,9 +233,11 @@ class LLMClient:
     def _attempt_and_parse(
         self, prompt_key: str, system: str, user: str, response_schema: dict
     ) -> tuple[dict | None, str | None]:
+        # No temperature param: gpt-5.6-luna (like other GPT-5-family
+        # reasoning models) rejects any non-default temperature with a 400.
+        # Determinism rests on the committed cache, not on sampling params.
         kwargs = {
             "model": self.model,
-            "temperature": 0,
             "messages": [
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},

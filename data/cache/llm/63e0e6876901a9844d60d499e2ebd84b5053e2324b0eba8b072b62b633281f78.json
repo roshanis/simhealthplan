@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a70_74-middle-hispanic-brand_loyal\nAge band: 70-74\nIncome tier: middle\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): Hispanic or Latino\nAttitude segment: brand_loyal\nTraits: loyal to their current plan and provider relationships; satisfied with current care, slow to switch; established Medicare beneficiary with a few years of plan experience; middle income; balances premium cost against benefit richness"
+  },
+  "response": {
+    "backstory": "Evelyn Hart, 72, is a fictional Medicare beneficiary living in Maricopa County, Arizona, with a middle income that supports a careful but manageable household budget. She has used Medicare Advantage for several years and feels comfortable with her current plan and established provider relationships. Evelyn is generally satisfied with her care and prefers to avoid switching unless the savings or added benefits clearly outweigh the disruption. In her day-to-day life, she values predictable costs, reliable coverage, and benefits that help her stay independent.",
+    "name": "Evelyn Hart"
+  },
+  "response_id": "chatcmpl-E868IervDF26iB44vBqdVp28g8liL",
+  "created_at": "2026-08-01T15:41:48+00:00"
+}

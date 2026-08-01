@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-higher-hispanic-benefit_maximizer\nAge band: 65-69\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): Hispanic or Latino\nAttitude segment: benefit_maximizer\nTraits: strongly values dental/vision/hearing extras; prioritizes rich supplemental benefits and OTC/flex allowances; recently Medicare-eligible; still comparing plans against employer-era habits; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Elliot Bennett is 67, recently Medicare-eligible, and lives comfortably in Maricopa County, Arizona, with income that lets him focus more on value than on keeping premiums as low as possible. After years of relying on employer coverage, he is still comparing Medicare Advantage options against the broad benefits and simple access he was used to. He pays close attention to dental, vision, and hearing coverage, along with generous over-the-counter and flex allowances that can make everyday expenses easier to manage. He wants a plan with rich supplemental benefits, clear rules, and dependable support so he can feel confident that he is not leaving useful value on the table.",
+    "name": "Elliot Bennett"
+  },
+  "response_id": "chatcmpl-E867fQTBgncS6ZVgVpGLP17SGsCvh",
+  "created_at": "2026-08-01T15:41:09+00:00"
+}

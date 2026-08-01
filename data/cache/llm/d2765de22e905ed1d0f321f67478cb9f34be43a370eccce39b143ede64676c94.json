@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a75_84-higher-white-brand_loyal\nAge band: 75-84\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: brand_loyal\nTraits: loyal to their current plan and provider relationships; satisfied with current care, slow to switch; older senior; increasing focus on health and functional needs; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Evelyn Hart, 79, lives comfortably in Maricopa County, Arizona, with enough retirement income that monthly premiums are less important than dependable coverage. She is loyal to her current Medicare Advantage plan and long-standing clinicians, and she is slow to consider changes because her care has served her well. As she pays closer attention to mobility, preventive care, and managing everyday health needs, she values coordinated services, easy access to familiar providers, and practical support that helps her remain independent. She prefers stability and continuity over shopping for a lower-cost alternative.",
+    "name": "Evelyn Hart"
+  },
+  "response_id": "chatcmpl-E862ceum8y0elkxoL2KLLnPYbN3nv",
+  "created_at": "2026-08-01T15:35:57+00:00"
+}

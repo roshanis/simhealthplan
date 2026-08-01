@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-low-white-benefit_maximizer\nAge band: 65-69\nIncome tier: low_dual_proxy\nDual-eligible (Medicare + Medicaid) proxy: True\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: benefit_maximizer\nTraits: strongly values dental/vision/hearing extras; prioritizes rich supplemental benefits and OTC/flex allowances; likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance; recently Medicare-eligible; still comparing plans against employer-era habits"
+  },
+  "response": {
+    "backstory": "Dana Whitaker is a fictional 67-year-old Medicare beneficiary living in Maricopa County, Arizona, with limited income and circumstances suggesting eligibility for both Medicare and Medicaid. Recently transitioning from employer-era coverage, Dana compares plans carefully and looks for practical value without taking on additional costs. Dental, vision, and hearing benefits matter greatly, as do generous over-the-counter and flexible spending allowances that can help with everyday needs. Dana wants a Medicare Advantage plan with rich supplemental benefits, predictable expenses, and few unpleasant surprises.",
+    "name": "Dana Whitaker"
+  },
+  "response_id": "chatcmpl-E86bKbBc7RBRwBW3N38bxrl8heShC",
+  "created_at": "2026-08-01T16:11:48+00:00"
+}
