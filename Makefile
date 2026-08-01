@@ -35,10 +35,15 @@ calibrate:
 	cd pipeline && uv run python -m choice_model.plan_attributes
 	cd pipeline && uv run python -m choice_model.calibrate
 
-## --- Later-phase placeholders (not implemented yet) ---
-
+## Build the Phase 4 LLM persona layer: for each of the 80 archetypes, one
+## CHOICE call + one BACKSTORY call (cache-first, budget-capped) blended
+## with the Phase 3 Year-2 logit baseline. Writes data/processed/personas.json
+## and data/processed/y2_predictions.json. Requires OPENAI_API_KEY in
+## pipeline/.env on a cold cache; a warm cache needs no key at all.
 personas:
-	@echo "personas: not implemented yet"
+	cd pipeline && uv run python -m llm.run_persona_pass
+
+## --- Later-phase placeholders (not implemented yet) ---
 
 backtest:
 	@echo "backtest: not implemented yet"
