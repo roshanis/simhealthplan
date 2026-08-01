@@ -1,0 +1,279 @@
+{
+  "attribute_scaling": {
+    "inertia_definition": "b_inertia * prior_plan_year1 probability for that plan/outside, after choice_sets.renormalize_prior_plan",
+    "is_ppo_definition": "plan_type in {PPO, Regional PPO} (see plan_attributes.normalize_plan_type)",
+    "moop_divisor": 1000.0,
+    "moop_scaling_note": "coefficient applies to moop_inn / moop_divisor (i.e. per $1,000 of in-network MOOP)",
+    "outside_option_utility_formula": "b_outside + b_inertia * prior_prob(archetype, outside)",
+    "premium_divisor": 10.0,
+    "premium_scaling_note": "coefficient applies to premium_total / premium_divisor (i.e. per $10 of monthly premium)",
+    "premium_total_formula": "premium_part_c + premium_part_d",
+    "star_rating_center": 3.5,
+    "star_scaling_note": "coefficient applies to (star_rating - star_rating_center)",
+    "vision_hearing_formula": "(has_vision + has_hearing_aids) / 2"
+  },
+  "base_coefficients": {
+    "b_dental": 2.6094444056599246,
+    "b_inertia": 37.01288869526836,
+    "b_moop": -0.2303091027860283,
+    "b_otc": 2.854129038810936,
+    "b_outside": -7.749267713089052,
+    "b_ppo": -0.9048090066281252,
+    "b_premium": -1.2305439212423082,
+    "b_star": 0.0,
+    "b_vision_hearing": 1.6045763703333913
+  },
+  "choice_set_rules": {
+    "csnp": {
+      "eligibility_field": "attitude_segment",
+      "eligibility_value": "health_status_driven",
+      "note": "Explicit proxy: true C-SNP eligibility requires a qualifying chronic-condition diagnosis, unobserved here; approximated by attitude_segment == 'health_status_driven'.",
+      "proxy": true,
+      "snp_type": "Chronic or Disabling Condition"
+    },
+    "dsnp": {
+      "eligibility_field": "dual_proxy",
+      "eligibility_value": true,
+      "note": "Real CMS D-SNP eligibility rule; dual_proxy is Phase 2's ACS/CMS-income-derived proxy for dual eligibility.",
+      "proxy": false,
+      "snp_type": "Dual-Eligible"
+    },
+    "isnp": {
+      "eligibility_field": "age_band",
+      "eligibility_value": "85+",
+      "note": "Explicit proxy: true I-SNP eligibility requires institutional/long-term-care residence, unobserved here; approximated by age_band == '85+'.",
+      "proxy": true,
+      "snp_type": "Institutional"
+    }
+  },
+  "metadata": {
+    "calibration": {
+      "best_start_index": 2,
+      "bounds": {
+        "b_dental": [
+          0.0,
+          10.0
+        ],
+        "b_inertia": [
+          0.0,
+          80.0
+        ],
+        "b_moop": [
+          -10.0,
+          0.0
+        ],
+        "b_otc": [
+          0.0,
+          10.0
+        ],
+        "b_outside": [
+          -20.0,
+          20.0
+        ],
+        "b_ppo": [
+          -10.0,
+          10.0
+        ],
+        "b_premium": [
+          -10.0,
+          0.0
+        ],
+        "b_star": [
+          0.0,
+          10.0
+        ],
+        "b_vision_hearing": [
+          0.0,
+          10.0
+        ]
+      },
+      "converged": true,
+      "final_loss": 2.8221488568007936e-05,
+      "iterations": 17,
+      "l2_lambda": 1e-06,
+      "loss_function": "size-weighted squared error between predicted and actual 2024 aggregate shares (weight = actual share), plus l2_lambda * sum((x - l2_prior_anchor)^2) pulling each start toward its own documented economic-prior anchor (see calibration.prior_coefficients / strong_inertia_prior_coefficients and each per_start entry's l2_prior_anchor)",
+      "method": "L-BFGS-B",
+      "n_starts": 3,
+      "per_start": [
+        {
+          "converged": true,
+          "final_loss": 6.730551153443445e-05,
+          "iterations": 44,
+          "l2_prior_anchor": {
+            "b_dental": 0.5,
+            "b_inertia": 15.0,
+            "b_moop": -0.3,
+            "b_otc": 0.5,
+            "b_outside": -1.0,
+            "b_ppo": 0.0,
+            "b_premium": -0.5,
+            "b_star": 0.5,
+            "b_vision_hearing": 0.5
+          },
+          "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "start_index": 0,
+          "x0": {
+            "b_dental": 0.5,
+            "b_inertia": 15.0,
+            "b_moop": -0.3,
+            "b_otc": 0.5,
+            "b_outside": -1.0,
+            "b_ppo": 0.0,
+            "b_premium": -0.5,
+            "b_star": 0.5,
+            "b_vision_hearing": 0.5
+          }
+        },
+        {
+          "converged": true,
+          "final_loss": 0.00019615248580093374,
+          "iterations": 12,
+          "l2_prior_anchor": {
+            "b_dental": 0.5,
+            "b_inertia": 15.0,
+            "b_moop": -0.3,
+            "b_otc": 0.5,
+            "b_outside": -1.0,
+            "b_ppo": 0.0,
+            "b_premium": -0.5,
+            "b_star": 0.5,
+            "b_vision_hearing": 0.5
+          },
+          "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "start_index": 1,
+          "x0": {
+            "b_dental": 1.062838396854843,
+            "b_inertia": 13.102544445938507,
+            "b_moop": -1.0799880796803716,
+            "b_otc": 0.0,
+            "b_outside": -1.0504034725128664,
+            "b_ppo": 0.19176060475092804,
+            "b_premium": -0.2714621901841765,
+            "b_star": 0.0,
+            "b_vision_hearing": 1.2054235372934103
+          }
+        },
+        {
+          "converged": true,
+          "final_loss": 2.8221488568007936e-05,
+          "iterations": 17,
+          "l2_prior_anchor": {
+            "b_dental": 2.0,
+            "b_inertia": 35.0,
+            "b_moop": -0.3,
+            "b_otc": 2.0,
+            "b_outside": -5.0,
+            "b_ppo": 0.0,
+            "b_premium": -1.0,
+            "b_star": 1.0,
+            "b_vision_hearing": 1.5
+          },
+          "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+          "start_index": 2,
+          "x0": {
+            "b_dental": 2.5833439515717114,
+            "b_inertia": 37.21250470449499,
+            "b_moop": 0.0,
+            "b_otc": 2.8454309052260247,
+            "b_outside": -7.876647802486996,
+            "b_ppo": -1.2889386943248573,
+            "b_premium": -1.6397829456801851,
+            "b_star": 1.3506320066890343,
+            "b_vision_hearing": 1.549523023170912
+          }
+        }
+      ],
+      "prior_coefficients": {
+        "b_dental": 0.5,
+        "b_inertia": 15.0,
+        "b_moop": -0.3,
+        "b_otc": 0.5,
+        "b_outside": -1.0,
+        "b_ppo": 0.0,
+        "b_premium": -0.5,
+        "b_star": 0.5,
+        "b_vision_hearing": 0.5
+      },
+      "seed": 42,
+      "strong_inertia_prior_coefficients": {
+        "b_dental": 2.0,
+        "b_inertia": 35.0,
+        "b_moop": -0.3,
+        "b_otc": 2.0,
+        "b_outside": -5.0,
+        "b_ppo": 0.0,
+        "b_premium": -1.0,
+        "b_star": 1.0,
+        "b_vision_hearing": 1.5
+      }
+    },
+    "fit_metrics_year1": {
+      "n_plans": 93,
+      "outside_share_actual_pp": 55.249606,
+      "outside_share_error_pp": 0.00164,
+      "outside_share_predicted_pp": 55.251246,
+      "size_weighted_mae_pp": 0.182127,
+      "worst_5_plans_by_abs_error": [
+        {
+          "abs_error_pp": 1.728713,
+          "actual_share_pp": 2.210326,
+          "plan_key": "H2406-061",
+          "predicted_share_pp": 0.481614
+        },
+        {
+          "abs_error_pp": 0.924337,
+          "actual_share_pp": 0.929122,
+          "plan_key": "H2406-079",
+          "predicted_share_pp": 0.004786
+        },
+        {
+          "abs_error_pp": 0.889598,
+          "actual_share_pp": 0.890636,
+          "plan_key": "H5580-001",
+          "predicted_share_pp": 0.001038
+        },
+        {
+          "abs_error_pp": 0.88285,
+          "actual_share_pp": 0.119736,
+          "plan_key": "H3443-001",
+          "predicted_share_pp": 1.002586
+        },
+        {
+          "abs_error_pp": 0.865095,
+          "actual_share_pp": 0.050797,
+          "plan_key": "H1822-001",
+          "predicted_share_pp": 0.915892
+        }
+      ]
+    },
+    "generated_from": {
+      "archetypes_file": "archetypes.json",
+      "n_archetypes": 80,
+      "n_plans": 93,
+      "plans_file": "plans_2024.json"
+    },
+    "phase": 3,
+    "seed": 42,
+    "year1": 2024
+  },
+  "outside_option_key": "other_or_no_ma_2024",
+  "segment_multipliers": {
+    "benefit_maximizer": {
+      "b_dental": 1.5,
+      "b_otc": 1.5,
+      "b_vision_hearing": 1.5
+    },
+    "brand_loyal": {
+      "b_inertia": 2.0
+    },
+    "health_status_driven": {
+      "b_moop": 1.3,
+      "b_star": 1.5
+    },
+    "mixed": {},
+    "price_sensitive": {
+      "b_inertia": 0.6,
+      "b_premium": 1.6
+    }
+  }
+}

@@ -28,10 +28,14 @@ ingest:
 archetypes:
 	cd pipeline && uv run python -m archetypes.build_archetypes
 
-## --- Later-phase placeholders (not implemented yet) ---
-
+## Build the Phase 3 choice model: canonical per-plan attribute tables
+## (data/processed/plans_2024.json, plans_2025.json) and the calibrated
+## Year-1 multinomial-logit coefficients (data/processed/coefficients.json).
 calibrate:
-	@echo "calibrate: not implemented yet"
+	cd pipeline && uv run python -m choice_model.plan_attributes
+	cd pipeline && uv run python -m choice_model.calibrate
+
+## --- Later-phase placeholders (not implemented yet) ---
 
 personas:
 	@echo "personas: not implemented yet"
