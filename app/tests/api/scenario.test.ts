@@ -64,6 +64,23 @@ describe("POST /api/scenario -- end to end against real scenario_inputs.json", (
     expect(body.top_movers.length).toBeGreaterThan(0);
   });
 
+  it("raising MOOP lowers the changed plan's share (b_moop is negative), so the UI's MOOP slider has a real effect", async () => {
+    const response = await POST(
+      postRequest({
+        changes: [{ plan_key: largestPlan.plan_key, field: "moop_inn", delta: 2000 }],
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    const body = await response.json();
+
+    const before = body.baseline.shares[largestPlan.plan_key];
+    const after = body.scenario.shares[largestPlan.plan_key];
+    // delta_u = b_moop * (2000/1000) = -0.46 under this pilot's fitted
+    // coefficients -- a strictly negative utility change, so share must fall.
+    expect(after).toBeLessThan(before);
+  });
+
   it("rejects a request with no changes (400)", async () => {
     const response = await POST(postRequest({ changes: [] }));
     expect(response.status).toBe(400);

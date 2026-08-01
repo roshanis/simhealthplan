@@ -40,7 +40,8 @@ export default function ScenarioPage() {
             What-if scenarios
           </h1>
           <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
-            Pick a real 2025 Maricopa County plan, change its premium, benefits, or star rating, and see how the model
+            Pick a real 2025 Maricopa County plan, change its premium, out-of-pocket maximum, benefits, or star
+            rating, and see how the model
             expects market shares to respond. For example: what if a plan cut its premium by $15 but dropped dental?
             Results come from the same model as the report, recomputed live — no AI calls, just math across
             all {archetypes.length} population profiles.

@@ -2,7 +2,7 @@
 
 /**
  * Interactive counterfactual controls: pick a 2025 plan, adjust premium
- * delta / star delta / dental / vision / hearing / OTC, POST to
+ * delta / MOOP delta / star delta / dental / vision / hearing / OTC, POST to
  * `/api/scenario`, and render before/after shares for the changed plan +
  * top movers + Monte Carlo p10/p90 bands. Pure recompute, no LLM calls --
  * the round trip is the existing TS engine running against
@@ -12,7 +12,7 @@
 import { useMemo, useState } from "react";
 
 import { ShareBand } from "@/components/scenario/ShareBand";
-import { formatMoneyDelta, formatPercent, formatSignedPP, planLabel } from "@/lib/format";
+import { formatMoney, formatMoneyDelta, formatPercent, formatSignedPP, planLabel } from "@/lib/format";
 import type { ScenarioPlanRecord } from "@/lib/data/types";
 import type { ScenarioResult } from "@/lib/scenario/runScenario";
 
@@ -32,6 +32,7 @@ export function ScenarioDemo({
   const plan = plans.find((p) => p.plan_key === planKey) ?? sortedPlans[0];
 
   const [premiumDelta, setPremiumDelta] = useState(0);
+  const [moopDelta, setMoopDelta] = useState(0);
   const [starDelta, setStarDelta] = useState(0);
   const [dental, setDental] = useState(plan?.has_comprehensive_dental ?? true);
   const [vision, setVision] = useState(plan?.has_vision ?? true);
@@ -51,6 +52,7 @@ export function ScenarioDemo({
     setHearing(next?.has_hearing_aids ?? true);
     setOtc(next?.has_otc_or_flex ?? true);
     setPremiumDelta(0);
+    setMoopDelta(0);
     setStarDelta(0);
     setResult(null);
   }
@@ -59,13 +61,14 @@ export function ScenarioDemo({
     if (!plan) return [];
     const list: Record<string, unknown>[] = [];
     if (premiumDelta !== 0) list.push({ plan_key: plan.plan_key, field: "premium_total", delta: premiumDelta });
+    if (moopDelta !== 0) list.push({ plan_key: plan.plan_key, field: "moop_inn", delta: moopDelta });
     if (starDelta !== 0) list.push({ plan_key: plan.plan_key, field: "star_rating", delta: starDelta });
     if (dental !== plan.has_comprehensive_dental) list.push({ plan_key: plan.plan_key, field: "has_comprehensive_dental", set: dental });
     if (vision !== plan.has_vision) list.push({ plan_key: plan.plan_key, field: "has_vision", set: vision });
     if (hearing !== plan.has_hearing_aids) list.push({ plan_key: plan.plan_key, field: "has_hearing_aids", set: hearing });
     if (otc !== plan.has_otc_or_flex) list.push({ plan_key: plan.plan_key, field: "has_otc_or_flex", set: otc });
     return list;
-  }, [plan, premiumDelta, starDelta, dental, vision, hearing, otc]);
+  }, [plan, premiumDelta, moopDelta, starDelta, dental, vision, hearing, otc]);
 
   async function runScenario() {
     if (changes.length === 0) return;
@@ -124,6 +127,23 @@ export function ScenarioDemo({
             value={premiumDelta}
             onChange={(e) => setPremiumDelta(Number(e.target.value))}
           />
+        </label>
+
+        <label className="flex flex-col gap-1 text-sm" style={{ color: "var(--text-secondary)" }}>
+          Out-of-pocket maximum change:{" "}
+          <strong style={{ color: "var(--text-primary)" }}>{formatMoneyDelta(moopDelta, 0)}/yr</strong>
+          <input
+            type="range"
+            min={-3000}
+            max={3000}
+            step={250}
+            value={moopDelta}
+            onChange={(e) => setMoopDelta(Number(e.target.value))}
+          />
+          <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+            The most a member can pay out of pocket in a year (MOOP). This plan&rsquo;s current cap:{" "}
+            {formatMoney(plan.moop_inn, 0)}.
+          </span>
         </label>
 
         <label className="flex flex-col gap-1 text-sm" style={{ color: "var(--text-secondary)" }}>
