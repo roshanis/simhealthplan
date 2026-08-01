@@ -43,10 +43,15 @@ calibrate:
 personas:
 	cd pipeline && uv run python -m llm.run_persona_pass
 
-## --- Later-phase placeholders (not implemented yet) ---
-
+## Build the Phase 5 backtest: scores the Year-2 logit prediction (and the
+## blended prediction, once `make personas` has run) against actual 2025
+## CMS enrollment, alongside two naive baselines (no_change, trend), plus
+## Monte Carlo p10/p50/p90 confidence bounds. Writes
+## data/processed/backtest_result.json.
 backtest:
-	@echo "backtest: not implemented yet"
+	cd pipeline && uv run python -m backtest.run_backtest
+
+## --- Later-phase placeholders (not implemented yet) ---
 
 export:
 	@echo "export: not implemented yet"

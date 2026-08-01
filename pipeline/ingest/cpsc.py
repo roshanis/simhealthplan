@@ -21,6 +21,19 @@ LANDING_PAGE_2025_03 = (
     "medicare-advantagepart-d-contract-and-enrollment-data/monthly-enrollment-contract/"
     "plan/state/county/monthly-enrollment-cpsc-2025-03"
 )
+# Phase 5 backtest (pipeline/backtest/baselines.py) needs a third snapshot --
+# March 2023 -- for the trend-extrapolation naive baseline. CMS's "current"
+# landing-page index (the one LANDING_PAGE_2024_03/2025_03 live under) only
+# retains a rolling ~2.5-year window, so March 2023 isn't listed there
+# anymore; it's still live under CMS's older/legacy URL prefix (verified
+# live: this exact page 200s and its zip link matches LINK_PATTERN below,
+# same as every other year). Deliberately NOT added to ingest_all()/`make
+# ingest` -- only the backtest step pulls it, on demand, via
+# baselines.ensure_cpsc_2023_ingested().
+LANDING_PAGE_2023_03 = (
+    "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/"
+    "mcradvpartdenroldata/monthly/monthly-enrollment-cpsc-2023-03"
+)
 
 # CMS's Drupal file field appends "-0" (etc.) to de-duplicate filenames, so
 # match the ".zip" extension optionally followed by a "-<n>" suffix rather

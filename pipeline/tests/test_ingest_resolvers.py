@@ -43,6 +43,17 @@ CPSC_2025_HTML = """
 </body></html>
 """
 
+# Real anchor markup from CMS's legacy URL prefix (verified live during Phase
+# 5 development: LANDING_PAGE_2023_03 200s and this is its exact <a> tag --
+# March 2023 has aged out of the "current" landing-page index that
+# LANDING_PAGE_2024_03/2025_03 live under, but the older per-month page URL
+# is still served).
+CPSC_2023_HTML = """
+<html><body>
+<a href="/files/zip/monthly-enrollment-cpsc-march-2023.zip" hreflang="en">Monthly Enrollment by CPSC – March 2023</a>
+</body></html>
+"""
+
 
 def test_cpsc_resolves_2024_url():
     url, _text = cpsc.resolve_download_url(cpsc.LANDING_PAGE_2024_03, html=CPSC_2024_HTML)
@@ -52,6 +63,11 @@ def test_cpsc_resolves_2024_url():
 def test_cpsc_resolves_2025_url_with_drupal_suffix():
     url, _text = cpsc.resolve_download_url(cpsc.LANDING_PAGE_2025_03, html=CPSC_2025_HTML)
     assert url.endswith("monthly-enrollment-cpsc-march-2025.zip-0")
+
+
+def test_cpsc_resolves_2023_url_from_legacy_landing_page():
+    url, _text = cpsc.resolve_download_url(cpsc.LANDING_PAGE_2023_03, html=CPSC_2023_HTML)
+    assert url == "https://www.cms.gov/files/zip/monthly-enrollment-cpsc-march-2023.zip"
 
 
 # --- MA State/County Penetration ---------------------------------------------
