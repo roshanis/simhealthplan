@@ -18,6 +18,7 @@ import backtestRaw from "@/data/backtest.json";
 import coefficientsRaw from "@/data/coefficients.json";
 import marketRaw from "@/data/market.json";
 import personasRaw from "@/data/personas.json";
+import physiciansRaw from "@/data/physicians.json";
 import scenarioInputsRaw from "@/data/scenario_inputs.json";
 import type { CoefficientsFile } from "@/lib/choice-model/types";
 import type {
@@ -25,6 +26,7 @@ import type {
   BacktestData,
   MarketData,
   PersonasFile,
+  PhysiciansFile,
   ScenarioInputsFile,
 } from "@/lib/data/types";
 
@@ -33,4 +35,5 @@ export const backtest = backtestRaw as unknown as BacktestData;
 export const archetypesDisplay = archetypesRaw as unknown as ArchetypesDisplayFile;
 export const coefficients = coefficientsRaw as unknown as CoefficientsFile;
 export const personas = personasRaw as unknown as PersonasFile;
+export const physicians = physiciansRaw as unknown as PhysiciansFile;
 export const scenarioInputs = scenarioInputsRaw as unknown as ScenarioInputsFile;

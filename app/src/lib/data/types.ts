@@ -163,6 +163,34 @@ export interface PersonasFile {
   personas: PersonaRecord[];
 }
 
+// --- physicians.json ------------------------------------------------------------------
+
+export interface PhysicianSpecialtyCount {
+  specialty: string;
+  clinicians: number;
+}
+
+export interface PhysicianOrgCount {
+  org_name: string;
+  clinicians: number;
+}
+
+export interface PhysicianTotals {
+  clinicians: number;
+  organizations: number;
+  practice_locations: number;
+  specialties: number;
+  telehealth_share: number;
+}
+
+export interface PhysiciansFile {
+  available: boolean;
+  metadata?: Record<string, unknown>;
+  totals: PhysicianTotals | null;
+  top_specialties: PhysicianSpecialtyCount[];
+  top_organizations: PhysicianOrgCount[];
+}
+
 // --- scenario_inputs.json -------------------------------------------------------------
 
 export interface ScenarioPlanRecord {

@@ -25,9 +25,10 @@ import { LiveLlmButton } from "@/components/report/LiveLlmButton";
 import { MarketSnapshot } from "@/components/report/MarketSnapshot";
 import { Methodology } from "@/components/report/Methodology";
 import { PersonaCards } from "@/components/report/PersonaCards";
+import { PhysicianSupply } from "@/components/report/PhysicianSupply";
 import { ShareShiftChart } from "@/components/report/ShareShiftChart";
 import { VerdictSection } from "@/components/report/VerdictSection";
-import { archetypesDisplay, backtest, market, personas } from "@/lib/data/loaders";
+import { archetypesDisplay, backtest, market, personas, physicians } from "@/lib/data/loaders";
 import { formatCount } from "@/lib/format";
 import { buildMarketFacts } from "@/lib/report/marketFacts";
 import { buildPersonaCards, buildPersonaLookup, buildPlanLookup } from "@/lib/report/personas";
@@ -163,6 +164,20 @@ export default function ReportPage() {
           </p>
         </div>
         <MarketSnapshot plansByYear={market.plans} facts={marketFacts} years={years} />
+      </section>
+
+      <section aria-labelledby="physicians-heading" className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <h2 id="physicians-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
+            Physicians in the county
+          </h2>
+          <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
+            Who practices in Maricopa County, from CMS&rsquo;s public Doctors and Clinicians roster. This is context
+            about the local market only: CMS does not publish which physicians belong to which plan&rsquo;s network,
+            so the model cannot connect these clinicians to specific plans.
+          </p>
+        </div>
+        <PhysicianSupply physicians={physicians} />
       </section>
 
       <Methodology />
