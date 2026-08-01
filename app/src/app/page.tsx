@@ -61,23 +61,58 @@ export default function ReportPage() {
             simhealthplan
           </span>
           <Link href="/scenario" className="rounded-md border px-3 py-1.5" style={{ borderColor: "var(--border)" }}>
-            Live scenario demo →
+            Try a what-if scenario →
           </Link>
         </nav>
         <div className="flex flex-col gap-3">
           <p className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
-            Medicare Advantage plan-design pilot · Maricopa County, AZ · 2024 → 2025
+            Maricopa County, AZ · 2024 → 2025
           </p>
           <h1 className="text-4xl font-semibold tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Did a persona-grounded choice model predict last AEP&rsquo;s actual plan-share shifts?
+            A Medicare plan-choice model, tested against real enrollment
           </h1>
           <p className="max-w-3xl text-base" style={{ color: "var(--text-secondary)" }}>
-            {formatCount(market.market_totals["2024"]?.eligibles ?? 0)} synthetic Medicare-eligible beneficiaries,
-            modeled as {archetypesDisplay.metadata.archetype_count} weighted archetypes, choosing among{" "}
-            {market.market_totals["2024"]?.plan_count} (2024) → {market.market_totals["2025"]?.plan_count} (2025)
-            real Medicare Advantage plans -- backtested against actual CMS enrollment.
+            We simulated how {formatCount(market.market_totals["2024"]?.eligibles ?? 0)}{" "}Medicare-eligible people in
+            Maricopa County would choose among the county&rsquo;s real Medicare Advantage plans, then compared the
+            predictions with what actually happened in 2025. This page shows the results — including where the model
+            fell short.
           </p>
         </div>
+        <ol className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {[
+            {
+              step: "1",
+              title: "Build a population",
+              body: `${archetypesDisplay.metadata.archetype_count} representative profiles, built from Census and Medicare survey data, stand in for the county's Medicare-eligible residents.`,
+            },
+            {
+              step: "2",
+              title: "Simulate their choices",
+              body: `Each profile picks among the county's real plans (${market.market_totals["2024"]?.plan_count} in 2024, ${market.market_totals["2025"]?.plan_count} in 2025) based on premium, benefits, and the plan they already had.`,
+            },
+            {
+              step: "3",
+              title: "Check against reality",
+              body: "The predicted enrollment shifts are scored against actual CMS enrollment data, alongside two simple baselines.",
+            },
+          ].map((item) => (
+            <li
+              key={item.step}
+              className="flex flex-col gap-1 rounded-xl border p-4"
+              style={{ borderColor: "var(--border)", background: "var(--surface-1)" }}
+            >
+              <span className="text-xs font-semibold" style={{ color: "var(--text-muted)" }}>
+                Step {item.step}
+              </span>
+              <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                {item.title}
+              </span>
+              <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                {item.body}
+              </span>
+            </li>
+          ))}
+        </ol>
       </header>
 
       <VerdictSection summary={summary} />
@@ -85,14 +120,13 @@ export default function ReportPage() {
       <section aria-labelledby="share-shift-heading" className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <h2 id="share-shift-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
-            Where the model called it right (and wrong)
+            Predicted vs. actual, plan by plan
           </h2>
           <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
-            The {namedPlanRowCount} plans with the largest 2024 enrollment
-            {shareShiftRows.length > namedPlanRowCount ? ", plus every remaining plan aggregated into one row" : ""}.
-            Each row compares the model&rsquo;s predicted 2024→2025 share shift against what actually happened, with
-            the best naive baseline ({naiveVariant === "no_change" ? "no change" : "trend"}) shown as a reference
-            tick.
+            Each row is one plan: how much the model predicted its market share would change from 2024 to 2025 (blue)
+            next to what actually happened (green). Shown for the {namedPlanRowCount} largest plans by 2024 enrollment
+            {shareShiftRows.length > namedPlanRowCount ? ", with all remaining plans combined into one row" : ""}. The
+            gray tick marks the simple baseline ({naiveVariant === "no_change" ? "assume nothing changes" : "extend last year's trend"}) for comparison.
           </p>
         </div>
         <ShareShiftChart rows={shareShiftRows} bestNaive={naiveVariant} />
@@ -101,12 +135,12 @@ export default function ReportPage() {
       <section aria-labelledby="personas-heading" className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <h2 id="personas-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
-            Meet the market
+            The simulated population
           </h2>
           <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
-            {archetypesDisplay.metadata.archetype_count} weighted synthetic archetypes stand in for Maricopa
-            County&rsquo;s Medicare-eligible population -- built from Census ACS demographics and national MCBS
-            attitude segments (see Methodology for what that does and doesn&rsquo;t capture).
+            The {archetypesDisplay.metadata.archetype_count} profiles behind the simulation, built from Census
+            demographics and national Medicare survey data. Each card is one profile — expand it to see who it
+            represents and which plans that group has historically chosen.
           </p>
           {liveLlmEnabled && <LiveLlmButton />}
         </div>
@@ -121,11 +155,11 @@ export default function ReportPage() {
       <section aria-labelledby="market-heading" className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <h2 id="market-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
-            The world the personas live in
+            The plans they chose from
           </h2>
           <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
-            The full Maricopa County Medicare Advantage roster both years, sourced from CMS Landscape + PBP benefits
-            files.
+            Every Medicare Advantage plan offered in Maricopa County in 2024 and 2025, from CMS&rsquo;s published plan
+            files. Sort any column or switch years.
           </p>
         </div>
         <MarketSnapshot plansByYear={market.plans} facts={marketFacts} years={years} />
@@ -134,11 +168,11 @@ export default function ReportPage() {
       <Methodology />
 
       <footer className="border-t pt-6 text-xs" style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}>
-        Public CMS/Census data only. Fixed seed (42) throughout. See{" "}
+        Built from public CMS and Census data. All results are reproducible (fixed random seed). You can also{" "}
         <Link href="/scenario" className="underline">
-          the live scenario demo
+          try a what-if scenario
         </Link>{" "}
-        to run counterfactual plan-design changes against this same model.
+        — change a real plan&rsquo;s premium or benefits and see how the model expects enrollment to respond.
       </footer>
     </div>
   );

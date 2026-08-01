@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "simhealthplan — Medicare Advantage plan-design simulator",
+  title: "simhealthplan — Medicare Advantage plan simulator",
   description:
-    "A persona-grounded, backtested Medicare Advantage choice-model pilot for Maricopa County, AZ, with a live counterfactual scenario demo.",
+    "A Medicare Advantage plan-choice model for Maricopa County, AZ, tested against real enrollment data, with an interactive what-if scenario tool.",
 };
 
 export default function RootLayout({

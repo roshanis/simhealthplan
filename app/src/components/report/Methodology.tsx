@@ -1,5 +1,5 @@
 /**
- * "Methodology & honest limitations" -- every documented modeling
+ * "Methodology and limitations" -- every documented modeling
  * compromise, in one accordion. Plain server component: native
  * `<details>`/`<summary>` needs zero client JS for accordion behavior
  * (keyboard-accessible, works with JS disabled, degrades to "everything
@@ -80,12 +80,10 @@ export function Methodology() {
     <section aria-labelledby="methodology-heading" className="flex flex-col gap-3">
       <div className="flex flex-col gap-2">
         <h2 id="methodology-heading" className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
-          Methodology &amp; honest limitations
+          Methodology and limitations
         </h2>
         <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
-          Every modeling compromise in this pilot, documented plainly. None of these are hidden in a footnote --
-          they&rsquo;re the difference between a demo and a decision-support tool, and leadership should see them
-          before either.
+          The assumptions and shortcuts behind this model, listed plainly. Open any item for details.
         </p>
       </div>
 

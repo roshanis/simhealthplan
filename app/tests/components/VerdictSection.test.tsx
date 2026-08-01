@@ -1,6 +1,10 @@
 // @vitest-environment jsdom
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
+
+// Vitest runs without globals, so testing-library's auto-cleanup never
+// registers; without this the DOM accumulates across tests in this file.
+afterEach(cleanup);
 
 import { VerdictSection } from "@/components/report/VerdictSection";
 import type { BacktestSummary } from "@/lib/data/types";
@@ -17,14 +21,14 @@ function makeSummary(overrides: Partial<BacktestSummary> = {}): BacktestSummary 
 }
 
 describe("VerdictSection", () => {
-  it("labels the MAE tile 'Loses to no-change' when beats_naive.logit is false (the pilot's actual frozen result)", () => {
+  it("labels the MAE tile 'Worse than baseline' when beats_naive.logit is false (the pilot's actual frozen result)", () => {
     render(<VerdictSection summary={makeSummary()} />);
-    expect(screen.getByText("Loses to no-change")).toBeInTheDocument();
+    expect(screen.getByText("Worse than baseline")).toBeInTheDocument();
   });
 
-  it("labels the MAE tile 'Beats no-change' when beats_naive.logit is true", () => {
+  it("labels the MAE tile 'Better than baseline' when beats_naive.logit is true", () => {
     render(<VerdictSection summary={makeSummary({ beats_naive: { logit: true, blended: null } })} />);
-    expect(screen.getByText("Beats no-change")).toBeInTheDocument();
+    expect(screen.getByText("Better than baseline")).toBeInTheDocument();
   });
 
   it("labels the MAE tile 'Pending' when beats_naive.logit is null", () => {
@@ -32,7 +36,7 @@ describe("VerdictSection", () => {
     expect(screen.getAllByText("Pending").length).toBeGreaterThan(0);
   });
 
-  it("labels the accuracy tile 'Beats both baselines' when the model's directional accuracy beats both naive baselines", () => {
+  it("labels the accuracy tile 'Better than both baselines' when the model's directional accuracy beats both naive baselines", () => {
     render(
       <VerdictSection
         summary={makeSummary({ directional_accuracy: { logit: 0.714, blended: null, no_change: 0.5, trend: 0.55 } })}
@@ -40,36 +44,50 @@ describe("VerdictSection", () => {
     );
     // Appears in more than one tile by design (e.g. a summary line), so
     // assert presence rather than uniqueness.
-    expect(screen.getAllByText("Beats both baselines").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Better than both baselines").length).toBeGreaterThan(0);
   });
 
-  it("labels the accuracy tile 'Beats one baseline' when the model beats only one naive baseline", () => {
+  it("labels the accuracy tile 'Better than one baseline' when the model beats only one naive baseline", () => {
     render(
       <VerdictSection
         summary={makeSummary({ directional_accuracy: { logit: 0.52, blended: null, no_change: 0.5, trend: 0.6 } })}
       />,
     );
-    expect(screen.getByText("Beats one baseline")).toBeInTheDocument();
+    expect(screen.getByText("Better than one baseline")).toBeInTheDocument();
   });
 
-  it("labels the accuracy tile 'Loses to both baselines' when the model beats neither naive baseline", () => {
+  it("labels the accuracy tile 'Worse than both baselines' when the model beats neither naive baseline", () => {
     render(
       <VerdictSection
         summary={makeSummary({ directional_accuracy: { logit: 0.4, blended: null, no_change: 0.5, trend: 0.6 } })}
       />,
     );
-    expect(screen.getByText("Loses to both baselines")).toBeInTheDocument();
+    expect(screen.getByText("Worse than both baselines")).toBeInTheDocument();
   });
 
-  it("shows the blended tile as 'Pending' when weighted_mae.blended is null (personas.json / y2_predictions.json don't exist yet)", () => {
+  it("shows the blended tile as 'Not yet run' when weighted_mae.blended is null", () => {
     render(<VerdictSection summary={makeSummary()} />);
-    // Both blended tiles (MAE + accuracy) legitimately show this badge.
-    expect(screen.getAllByText("Pending LLM pass").length).toBeGreaterThan(0);
+    expect(screen.getByText("Not yet run")).toBeInTheDocument();
+    expect(screen.getAllByText("Pending").length).toBeGreaterThan(0);
   });
 
-  it("renders the negative-result prose honestly, without hiding beats_naive.logit === false", () => {
+  it("derives the blended tile's badge from beats_naive.blended once blended results exist", () => {
+    render(
+      <VerdictSection
+        summary={makeSummary({
+          beats_naive: { logit: false, blended: false },
+          directional_accuracy: { logit: 0.714, blended: 0.692, no_change: 0.5, trend: 0.55 },
+          weighted_mae: { logit: 0.0123479, blended: 0.0141363, no_change: 0.0041865, trend: 0.006 },
+        })}
+      />,
+    );
+    expect(screen.queryByText("Not yet run")).not.toBeInTheDocument();
+    // Both the base-model MAE tile and the blended tile trail the baseline here.
+    expect(screen.getAllByText("Worse than baseline").length).toBe(2);
+  });
+
+  it("states the mixed result plainly, without hiding beats_naive.logit === false", () => {
     render(<VerdictSection summary={makeSummary()} />);
-    expect(screen.getAllByText(/negative result on magnitude/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/positive result on direction/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/assuming nothing changes was more accurate/i).length).toBeGreaterThan(0);
   });
 });

@@ -1,5 +1,5 @@
 /**
- * Live scenario demo: pick a 2025 plan, adjust its attributes, and see the
+ * What-if scenario tool: pick a 2025 plan, adjust its attributes, and see the
  * choice model's recomputed shares. The baseline (unmodified) shares are
  * computed once here, server-side, at build time (this page has no
  * per-request input, so Next statically prerenders it) -- only the
@@ -14,7 +14,7 @@ import { aggregateWeightedShares } from "@/lib/scenario/runScenario";
 import type { Archetype, Plan } from "@/lib/choice-model/types";
 
 export const metadata = {
-  title: "Live scenario demo — simhealthplan",
+  title: "What-if scenarios — simhealthplan",
 };
 
 export default function ScenarioPage() {
@@ -32,17 +32,18 @@ export default function ScenarioPage() {
             simhealthplan
           </span>
           <Link href="/" className="rounded-md border px-3 py-1.5" style={{ borderColor: "var(--border)" }}>
-            ← Back to report
+            ← Back to the report
           </Link>
         </nav>
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-semibold tracking-tight" style={{ color: "var(--text-primary)" }}>
-            Live scenario demo
+            What-if scenarios
           </h1>
           <p className="max-w-3xl text-sm" style={{ color: "var(--text-secondary)" }}>
-            &ldquo;What if Plan X cut premium $15 and dropped dental?&rdquo; -- pick a real 2025 Maricopa County plan
-            and adjust its attributes. This recomputes the same calibrated multinomial-logit choice model against
-            all {archetypes.length} synthetic archetypes, live, with pure math (no LLM calls, no external requests).
+            Pick a real 2025 Maricopa County plan, change its premium, benefits, or star rating, and see how the model
+            expects market shares to respond. For example: what if a plan cut its premium by $15 but dropped dental?
+            Results come from the same model as the report, recomputed live — no AI calls, just math across
+            all {archetypes.length} population profiles.
           </p>
         </div>
       </header>
