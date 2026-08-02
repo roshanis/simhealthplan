@@ -10,6 +10,7 @@ access -- see run_backtest.py's live-run notes for whether that succeeded.
 
 from __future__ import annotations
 
+import httpx
 import pandas as pd
 import pytest
 
@@ -154,8 +155,14 @@ def test_real_cpsc_2023_ingest_and_parse_or_documented_unavailable():
     """
     try:
         record = baselines.ensure_cpsc_2023_ingested()
-    except (RuntimeError, OSError) as exc:  # documented "structurally unavailable" path
-        pytest.skip(f"2023 CPSC download structurally unavailable: {exc}")
+    except (RuntimeError, OSError, httpx.HTTPError) as exc:  # documented "structurally unavailable" path
+        # `httpx.HTTPError` is the base of every transport/protocol failure
+        # httpx raises, and it is NOT an OSError -- so without it, a sandbox
+        # or CI runner whose egress policy blocks www.cms.gov surfaces an
+        # `httpx.ProxyError: 403 Forbidden` as a hard test ERROR rather than
+        # the documented skip. "The network won't let us reach CMS" is
+        # exactly the "structurally unavailable" case this path exists for.
+        pytest.skip(f"2023 CPSC download structurally unavailable: {type(exc).__name__}: {exc}")
         return
     assert record.filename
     df = baselines.load_or_parse_cpsc_2023()

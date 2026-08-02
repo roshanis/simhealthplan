@@ -1,0 +1,739 @@
+{
+  "coverage": {
+    "asymmetry_note": "24 plans fell BELOW p10 vs 53 ABOVE p90 -- a large imbalance here (as opposed to roughly equal counts on both sides) indicates directional BIAS in the point estimate (actuals systematically outside on one side), not just underestimated VARIANCE (which would miss roughly symmetrically on both sides).",
+    "calibration_tolerance": 0.05,
+    "nominal_coverage": 0.8,
+    "nominal_interval": "p10-p90 (nominal 80% Monte Carlo interval)",
+    "outside_option": {
+      "above_keys": [],
+      "below_keys": [],
+      "covered_keys": [
+        "other_or_no_ma_2025"
+      ],
+      "n_above": 0,
+      "n_below": 0,
+      "n_covered": 1,
+      "n_evaluated": 1,
+      "skipped_missing_bounds_or_actual": [],
+      "unweighted_coverage": 1.0,
+      "weighted_coverage": 1.0
+    },
+    "plan_level": {
+      "above_keys": [
+        "H0028-028",
+        "H0028-077",
+        "H0302-001",
+        "H0302-006",
+        "H0321-004",
+        "H0351-064",
+        "H0354-027",
+        "H0354-028",
+        "H0609-042",
+        "H0609-044",
+        "H0609-046",
+        "H0710-005",
+        "H1822-001",
+        "H1822-002",
+        "H1822-006",
+        "H2406-061",
+        "H2406-064",
+        "H3443-003",
+        "H3443-005",
+        "H3443-006",
+        "H3931-092",
+        "H3931-179",
+        "H4835-001",
+        "H4835-002",
+        "H4869-001",
+        "H4869-002",
+        "H4869-004",
+        "H4869-010",
+        "H4869-012",
+        "H4931-007",
+        "H4931-015",
+        "H5216-034",
+        "H5216-224",
+        "H5216-265",
+        "H5216-371",
+        "H5216-435",
+        "H5521-554",
+        "H5580-001",
+        "H5580-004",
+        "H5580-005",
+        "H5587-002",
+        "H5590-008",
+        "H6586-001",
+        "H6586-005",
+        "H8173-001",
+        "H8173-002",
+        "H8173-005",
+        "H8173-011",
+        "H8173-014",
+        "H8173-019",
+        "H8173-020",
+        "H8845-001",
+        "R7220-002"
+      ],
+      "below_keys": [
+        "H0321-002",
+        "H0351-063",
+        "H0351-065",
+        "H1423-009",
+        "H1822-004",
+        "H1822-007",
+        "H2593-003",
+        "H3443-001",
+        "H3551-001",
+        "H3551-002",
+        "H3551-003",
+        "H3931-129",
+        "H3931-176",
+        "H4869-005",
+        "H4869-009",
+        "H5216-338",
+        "H5216-439",
+        "H5521-363",
+        "H5590-010",
+        "H7849-065",
+        "H7849-066",
+        "H8553-001",
+        "H8553-002",
+        "R7220-001"
+      ],
+      "covered_keys": [
+        "H0028-023",
+        "H0028-027",
+        "H0028-074",
+        "H0351-038",
+        "H0354-001",
+        "H0354-029",
+        "H0354-030",
+        "H0609-026",
+        "H0609-027",
+        "H1423-008",
+        "H1822-005",
+        "H2406-077",
+        "H4869-003",
+        "H5216-436",
+        "H5521-329",
+        "H5843-001",
+        "H8173-021"
+      ],
+      "n_above": 53,
+      "n_below": 24,
+      "n_covered": 17,
+      "n_evaluated": 94,
+      "skipped_missing_bounds_or_actual": [],
+      "unweighted_coverage": 0.18085106382978725,
+      "weighted_coverage": 0.4322489940369419
+    },
+    "reconciliation": {
+      "keys_in_bounds_not_in_per_plan": [],
+      "keys_in_per_plan_not_in_bounds": [],
+      "n_bounds_entries_plan_level": 94,
+      "n_bounds_entries_total": 95,
+      "n_per_plan_rows_plan_level": 94,
+      "n_per_plan_rows_total": 95,
+      "outside_key_present_in_bounds": true
+    },
+    "verdict_unweighted": "too_narrow_overconfident",
+    "verdict_weighted": "too_narrow_overconfident"
+  },
+  "damping": {
+    "endpoints": {
+      "lambda_0_is_no_change_baseline": {
+        "directional_accuracy": 0.40425531914893614,
+        "lambda": 0.0,
+        "weighted_mae": 0.004186456355069878
+      },
+      "lambda_1_is_pure_logit": {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 1.0,
+        "weighted_mae": 0.012347926074570293
+      }
+    },
+    "lambda_grid": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "leave_one_plan_out_cv": {
+      "chosen_lambda_by_plan": {
+        "H0028-023": 0.0,
+        "H0028-027": 0.0,
+        "H0028-028": 0.0,
+        "H0028-074": 0.0,
+        "H0028-077": 0.0,
+        "H0302-001": 0.0,
+        "H0302-006": 0.0,
+        "H0321-002": 0.15,
+        "H0321-004": 0.0,
+        "H0351-038": 0.0,
+        "H0351-063": 0.0,
+        "H0351-064": 0.0,
+        "H0351-065": 0.0,
+        "H0354-001": 0.0,
+        "H0354-027": 0.0,
+        "H0354-028": 0.0,
+        "H0354-029": 0.0,
+        "H0354-030": 0.0,
+        "H0609-026": 0.0,
+        "H0609-027": 0.0,
+        "H0609-042": 0.0,
+        "H0609-044": 0.0,
+        "H0609-046": 0.0,
+        "H0710-005": 0.0,
+        "H1423-008": 0.0,
+        "H1423-009": 0.0,
+        "H1822-001": 0.0,
+        "H1822-002": 0.0,
+        "H1822-004": 0.0,
+        "H1822-005": 0.0,
+        "H1822-006": 0.0,
+        "H1822-007": 0.0,
+        "H2406-061": 0.0,
+        "H2406-064": 0.0,
+        "H2406-077": 0.0,
+        "H2593-003": 0.0,
+        "H3443-001": 0.0,
+        "H3443-003": 0.0,
+        "H3443-005": 0.0,
+        "H3443-006": 0.0,
+        "H3551-001": 0.0,
+        "H3551-002": 0.0,
+        "H3551-003": 0.0,
+        "H3931-092": 0.0,
+        "H3931-129": 0.0,
+        "H3931-176": 0.0,
+        "H3931-179": 0.0,
+        "H4835-001": 0.0,
+        "H4835-002": 0.0,
+        "H4869-001": 0.0,
+        "H4869-002": 0.0,
+        "H4869-003": 0.0,
+        "H4869-004": 0.0,
+        "H4869-005": 0.0,
+        "H4869-009": 0.0,
+        "H4869-010": 0.0,
+        "H4869-012": 0.0,
+        "H4931-007": 0.0,
+        "H4931-015": 0.0,
+        "H5216-034": 0.0,
+        "H5216-224": 0.0,
+        "H5216-265": 0.0,
+        "H5216-338": 0.0,
+        "H5216-371": 0.0,
+        "H5216-435": 0.0,
+        "H5216-436": 0.0,
+        "H5216-439": 0.0,
+        "H5521-329": 0.0,
+        "H5521-363": 0.0,
+        "H5521-554": 0.0,
+        "H5580-001": 0.0,
+        "H5580-004": 0.0,
+        "H5580-005": 0.0,
+        "H5587-002": 0.0,
+        "H5590-008": 0.0,
+        "H5590-010": 0.0,
+        "H5843-001": 0.0,
+        "H6586-001": 0.0,
+        "H6586-005": 0.0,
+        "H7849-065": 0.0,
+        "H7849-066": 0.0,
+        "H8173-001": 0.0,
+        "H8173-002": 0.0,
+        "H8173-005": 0.0,
+        "H8173-011": 0.0,
+        "H8173-014": 0.0,
+        "H8173-019": 0.0,
+        "H8173-020": 0.0,
+        "H8173-021": 0.0,
+        "H8553-001": 0.0,
+        "H8553-002": 0.0,
+        "H8845-001": 0.0,
+        "R7220-001": 0.0,
+        "R7220-002": 0.0
+      },
+      "chosen_lambda_distribution": {
+        "counts": {
+          "0.00": 93,
+          "0.15": 1
+        },
+        "max": 0.15,
+        "mean": 0.0015957446808510637,
+        "min": 0.0,
+        "n": 94
+      },
+      "description": "Honest out-of-sample estimate: for each plan, the damping lambda is chosen using every OTHER plan's weighted MAE only, then that plan alone is scored at its fold-chosen lambda. This is a legitimate generalization estimate, distinct from the oracle value above.",
+      "directional_accuracy": 0.40425531914893614,
+      "n_plans": 94,
+      "weighted_mae": 0.005176819112766702
+    },
+    "oracle": {
+      "caveat": "ORACLE value: lambda chosen by argmin weighted_mae over the exact same plans/year being scored (in-sample). This is NOT a validated out-of-sample improvement -- it is an upper bound on what damping could achieve if you already knew the answer. See leave_one_plan_out_cv for the honest generalization estimate.",
+      "directional_accuracy": 0.40425531914893614,
+      "lambda": 0.0,
+      "weighted_mae": 0.004186456355069878
+    },
+    "predictor": "share_damped(lambda) = lambda * share_2025_pred_logit + (1 - lambda) * share_2025_naive_nochange",
+    "sweep": [
+      {
+        "directional_accuracy": 0.40425531914893614,
+        "lambda": 0.0,
+        "weighted_mae": 0.004186456355069878
+      },
+      {
+        "directional_accuracy": 0.6702127659574468,
+        "lambda": 0.05,
+        "weighted_mae": 0.004486777396045925
+      },
+      {
+        "directional_accuracy": 0.7021276595744681,
+        "lambda": 0.1,
+        "weighted_mae": 0.004790003597415611
+      },
+      {
+        "directional_accuracy": 0.6914893617021277,
+        "lambda": 0.15,
+        "weighted_mae": 0.005100560986846547
+      },
+      {
+        "directional_accuracy": 0.7021276595744681,
+        "lambda": 0.2,
+        "weighted_mae": 0.005435335370602138
+      },
+      {
+        "directional_accuracy": 0.723404255319149,
+        "lambda": 0.25,
+        "weighted_mae": 0.0057948520242227745
+      },
+      {
+        "directional_accuracy": 0.723404255319149,
+        "lambda": 0.3,
+        "weighted_mae": 0.006186789720966504
+      },
+      {
+        "directional_accuracy": 0.723404255319149,
+        "lambda": 0.35,
+        "weighted_mae": 0.0065819483675828025
+      },
+      {
+        "directional_accuracy": 0.723404255319149,
+        "lambda": 0.4,
+        "weighted_mae": 0.006977341317128519
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.45,
+        "weighted_mae": 0.007373324208080386
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.5,
+        "weighted_mae": 0.007773466958313417
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.55,
+        "weighted_mae": 0.0081779834764728
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.6,
+        "weighted_mae": 0.008605347164111397
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.65,
+        "weighted_mae": 0.009032787536175535
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.7,
+        "weighted_mae": 0.009460227908239685
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.75,
+        "weighted_mae": 0.009895585461016423
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.8,
+        "weighted_mae": 0.010341758476990289
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.85,
+        "weighted_mae": 0.010787931492964154
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.9,
+        "weighted_mae": 0.011282741879783774
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 0.95,
+        "weighted_mae": 0.011815333977177035
+      },
+      {
+        "directional_accuracy": 0.7127659574468085,
+        "lambda": 1.0,
+        "weighted_mae": 0.012347926074570293
+      }
+    ],
+    "verdict": {
+      "lopo_cv_beats_no_change_on_mae": false,
+      "oracle_beats_no_change_on_mae": false,
+      "oracle_lambda": 0.0,
+      "summary": "Oracle lambda*=0.00 gives weighted MAE 0.004186 vs no_change's 0.004186 (does not beat no_change) -- but is in-sample/oracle. The LOPO-CV estimate is weighted MAE 0.005177 (does not beat no_change out-of-sample). If the oracle lambda* rounds to 0.00 (or the LOPO-CV chosen lambdas cluster at 0.00), that is the DEGENERATE case: the only way this predictor beats no_change on magnitude is by collapsing to no_change itself, which is not a real improvement -- state that plainly rather than reporting the MAE number alone. Directional accuracy at lambda=1.0 (pure logit, this module's own recomputation, WITHOUT the suppressed_both_years exclusion -- see module docstring) vs lambda=0.0 (no_change) shows the cost/benefit tradeoff of any lambda choice between them: see the 'sweep' array's directional_accuracy column."
+    }
+  },
+  "error_decomposition": {
+    "n_plans_scored": 94,
+    "n_plans_to_reach_cumulative_share": {
+      "50pct": 1,
+      "80pct": 4
+    },
+    "new_entrant_vs_incumbent_split": {
+      "incumbents": {
+        "n_plans": 81,
+        "total_enrollment_2024": 330032.0,
+        "unweighted_mean_abs_error": 0.003689465003033229
+      },
+      "new_entrants": {
+        "n_plans": 13,
+        "total_enrollment_2024": 0.0,
+        "unweighted_mean_abs_error": 0.0014590282963774827
+      },
+      "note": "new_entrants (enrollment_2024 == 0.0) contribute EXACTLY 0.0 to the published weighted MAE by construction (their weight is 0), regardless of unweighted_mean_abs_error shown here for context only -- this is a structural blind spot of the size-weighted metric, not a claim that the model is accurate for new entrants."
+    },
+    "org_rollup": [
+      {
+        "n_plans": 11,
+        "org": "UnitedHealthcare",
+        "total_contribution": 0.009420628754898847,
+        "total_weight": 136171.0
+      },
+      {
+        "n_plans": 7,
+        "org": "Cigna Healthcare",
+        "total_contribution": 0.0010074535738014403,
+        "total_weight": 49026.0
+      },
+      {
+        "n_plans": 2,
+        "org": "Blue Cross Blue Shield of Arizona (AZ Blue)",
+        "total_contribution": 0.0008474696825877751,
+        "total_weight": 15262.0
+      },
+      {
+        "n_plans": 15,
+        "org": "Humana",
+        "total_contribution": 0.00026127151241056167,
+        "total_weight": 61379.0
+      },
+      {
+        "n_plans": 9,
+        "org": "Aetna Medicare",
+        "total_contribution": 0.00023278556868979477,
+        "total_weight": 14474.0
+      },
+      {
+        "n_plans": 3,
+        "org": "Mercy Care Advantage",
+        "total_contribution": 0.00019579099142356515,
+        "total_weight": 10749.0
+      },
+      {
+        "n_plans": 6,
+        "org": "Wellcare by Allwell",
+        "total_contribution": 0.00014371103443534876,
+        "total_weight": 10031.0
+      },
+      {
+        "n_plans": 3,
+        "org": "Banner Medicare Advantage",
+        "total_contribution": 0.0001247401910065914,
+        "total_weight": 12548.0
+      },
+      {
+        "n_plans": 10,
+        "org": "Devoted Health",
+        "total_contribution": 5.735164631571225e-05,
+        "total_weight": 13580.0
+      },
+      {
+        "n_plans": 4,
+        "org": "Alignment Health Plan",
+        "total_contribution": 1.9508441325317257e-05,
+        "total_weight": 1636.0
+      },
+      {
+        "n_plans": 1,
+        "org": "BCBSAZ Health Choice",
+        "total_contribution": 1.8152577772785495e-05,
+        "total_weight": 2235.0
+      },
+      {
+        "n_plans": 3,
+        "org": "Wellpoint",
+        "total_contribution": 9.479897250005155e-06,
+        "total_weight": 601.0
+      },
+      {
+        "n_plans": 3,
+        "org": "eternalHealth",
+        "total_contribution": 3.547419274943687e-06,
+        "total_weight": 189.0
+      },
+      {
+        "n_plans": 2,
+        "org": "Wellcare",
+        "total_contribution": 2.62150510762837e-06,
+        "total_weight": 601.0
+      },
+      {
+        "n_plans": 8,
+        "org": "Gold Kidney Health Plan",
+        "total_contribution": 2.2391506505937455e-06,
+        "total_weight": 373.0
+      },
+      {
+        "n_plans": 6,
+        "org": "SCAN Health Plan",
+        "total_contribution": 1.0434058704274827e-06,
+        "total_weight": 957.0
+      },
+      {
+        "n_plans": 1,
+        "org": "Molina Healthcare of Arizona",
+        "total_contribution": 1.3072174896481183e-07,
+        "total_weight": 220.0
+      }
+    ],
+    "top_contributors": [
+      {
+        "abs_error": 0.05593329064996684,
+        "contribution": 0.007053181985321636,
+        "cumulative_share_of_total": 0.571203774846626,
+        "enrollment_2024": 41617.0,
+        "name": "UHC Dual Complete AZ-S001 (HMO-POS D-SNP)",
+        "org": "UnitedHealthcare",
+        "plan_key": "H0321-002",
+        "share_2024": 0.05392926748356866,
+        "share_2025_actual": 0.05144583054433277,
+        "share_2025_pred_logit": 0.10737912119429961
+      },
+      {
+        "abs_error": 0.02142433557464108,
+        "contribution": 0.0011072710885509675,
+        "cumulative_share_of_total": 0.6608764115197039,
+        "enrollment_2024": 17057.0,
+        "name": "AARP Medicare Advantage from UHC AZ-0006 (PPO)",
+        "org": "UnitedHealthcare",
+        "plan_key": "H2406-061",
+        "share_2024": 0.022103263461259355,
+        "share_2025_actual": 0.025860836358529028,
+        "share_2025_pred_logit": 0.004436500783887946
+      },
+      {
+        "abs_error": 0.013242810703654725,
+        "contribution": 0.000905439543825959,
+        "cumulative_share_of_total": 0.7342036681260298,
+        "enrollment_2024": 22565.0,
+        "name": "Cigna Alliance Medicare (HMO)",
+        "org": "Cigna Healthcare",
+        "plan_key": "H0354-028",
+        "share_2024": 0.02924078911903133,
+        "share_2025_actual": 0.038710273349470525,
+        "share_2025_pred_logit": 0.0254674626458158
+      },
+      {
+        "abs_error": 0.006617301963560841,
+        "contribution": 0.0008436843458292319,
+        "cumulative_share_of_total": 0.8025296639842932,
+        "enrollment_2024": 42078.0,
+        "name": "AARP Medicare Advantage from UHC AZ-002P (HMO-POS)",
+        "org": "UnitedHealthcare",
+        "plan_key": "H0609-027",
+        "share_2024": 0.054526652982521615,
+        "share_2025_actual": 0.048786104640348625,
+        "share_2025_pred_logit": 0.055403406603909466
+      },
+      {
+        "abs_error": 0.02599852835060446,
+        "contribution": 0.0007286759685215107,
+        "cumulative_share_of_total": 0.8615416765377346,
+        "enrollment_2024": 9250.0,
+        "name": "Blue Best Life Classic (HMO)",
+        "org": "Blue Cross Blue Shield of Arizona (AZ Blue)",
+        "plan_key": "H0302-006",
+        "share_2024": 0.01198658539113848,
+        "share_2025_actual": 0.026741506781541857,
+        "share_2025_pred_logit": 0.0007429784309373996
+      },
+      {
+        "abs_error": 0.008026696292911504,
+        "contribution": 0.0002062174512398696,
+        "cumulative_share_of_total": 0.8782422503826463,
+        "enrollment_2024": 8479.0,
+        "name": "Aetna Medicare Prime (HMO-POS)",
+        "org": "Aetna Medicare",
+        "plan_key": "H3931-092",
+        "share_2024": 0.01098748730069872,
+        "share_2025_actual": 0.008627027218536594,
+        "share_2025_pred_logit": 0.0006003309256250908
+      },
+      {
+        "abs_error": 0.00781301229405086,
+        "contribution": 0.00016270796012814382,
+        "cumulative_share_of_total": 0.8914191967901267,
+        "enrollment_2024": 6873.0,
+        "name": "Mercy Care Advantage (HMO D-SNP)",
+        "org": "Mercy Care Advantage",
+        "plan_key": "H5580-001",
+        "share_2024": 0.008906356907383218,
+        "share_2025_actual": 0.007814684673171313,
+        "share_2025_pred_logit": 1.6723791204524352e-06
+      },
+      {
+        "abs_error": 0.0023565029176092073,
+        "contribution": 0.00012217639932858373,
+        "cumulative_share_of_total": 0.9013136842198982,
+        "enrollment_2024": 17111.0,
+        "name": "AARP Medicare Advantage Essentials from UHC AZ-2 (HMO-POS)",
+        "org": "UnitedHealthcare",
+        "plan_key": "H0609-026",
+        "share_2024": 0.02217323920300222,
+        "share_2025_actual": 0.019825207166329035,
+        "share_2025_pred_logit": 0.017468704248719828
+      },
+      {
+        "abs_error": 0.0036526258186258195,
+        "contribution": 0.00011903085361213667,
+        "cumulative_share_of_total": 0.910953428812901,
+        "enrollment_2024": 10755.0,
+        "name": "Banner Medicare Advantage Prime (HMO)",
+        "org": "Banner Medicare Advantage",
+        "plan_key": "H5843-001",
+        "share_2024": 0.013936835230453443,
+        "share_2025_actual": 0.009427981784293951,
+        "share_2025_pred_logit": 0.01308060760291977
+      },
+      {
+        "abs_error": 0.006521245349420719,
+        "contribution": 0.00011879371406626438,
+        "cumulative_share_of_total": 0.9205739685981943,
+        "enrollment_2024": 6012.0,
+        "name": "Blue Best Life Plus (HMO)",
+        "org": "Blue Cross Blue Shield of Arizona (AZ Blue)",
+        "plan_key": "H0302-001",
+        "share_2024": 0.007790632580705356,
+        "share_2025_actual": 0.006527842977475841,
+        "share_2025_pred_logit": 6.597628055122545e-06
+      },
+      {
+        "abs_error": 0.009955908327132607,
+        "contribution": 0.00010199291600219174,
+        "cumulative_share_of_total": 0.9288338913889728,
+        "enrollment_2024": 3381.0,
+        "name": "UHC Complete Care AZ-1P (HMO-POS C-SNP)",
+        "org": "UnitedHealthcare",
+        "plan_key": "H0609-042",
+        "share_2024": 0.004381258941344778,
+        "share_2025_actual": 0.01021122171510565,
+        "share_2025_pred_logit": 0.00025531338797304287
+      },
+      {
+        "abs_error": 0.0007327747394973022,
+        "contribution": 8.292207481700486e-05,
+        "cumulative_share_of_total": 0.9355493571535255,
+        "enrollment_2024": 37347.0,
+        "name": "Humana Gold Plus H0028-074 (HMO)",
+        "org": "Humana",
+        "plan_key": "H0028-074",
+        "share_2024": 0.04839600049760528,
+        "share_2025_actual": 0.044696554630036175,
+        "share_2025_pred_logit": 0.04396377989053887
+      },
+      {
+        "abs_error": 0.0052290164884513015,
+        "contribution": 8.165981171970599e-05,
+        "cumulative_share_of_total": 0.9421625982133242,
+        "enrollment_2024": 5154.0,
+        "name": "HumanaChoice H5216-265 (PPO)",
+        "org": "Humana",
+        "plan_key": "H5216-265",
+        "share_2024": 0.006678795795235429,
+        "share_2025_actual": 0.005356146408927164,
+        "share_2025_pred_logit": 0.00012712992047586265
+      },
+      {
+        "abs_error": 0.00552445305570037,
+        "contribution": 7.388658005242351e-05,
+        "cumulative_share_of_total": 0.94814632208778,
+        "enrollment_2024": 4414.0,
+        "name": "Wellcare Simple (HMO)",
+        "org": "Wellcare by Allwell",
+        "plan_key": "H0351-063",
+        "share_2024": 0.005719868963944351,
+        "share_2025_actual": 0.005834441552459994,
+        "share_2025_pred_logit": 0.011358894608160364
+      },
+      {
+        "abs_error": 0.005668034472843064,
+        "contribution": 6.850787048580436e-05,
+        "cumulative_share_of_total": 0.9536944497710913,
+        "enrollment_2024": 3989.0,
+        "name": "UHC Dual Complete AZ-Y001 (HMO-POS D-SNP)",
+        "org": "UnitedHealthcare",
+        "plan_key": "H0321-004",
+        "share_2024": 0.005169133959486637,
+        "share_2025_actual": 0.005680071162219239,
+        "share_2025_pred_logit": 1.2036689376174655e-05
+      }
+    ],
+    "total_weighted_mae_reconstructed": 0.012347926074570302
+  },
+  "metadata": {
+    "directional_accuracy_caveat": "This module's directional_accuracy figures (sweep/LOPO-CV) do NOT apply the suppressed_both_years exclusion the published summary.directional_accuracy uses (that exact plan-key set is not persisted in backtest_result.json, only its count -- see module docstring). At lambda=1.0 (pure logit) this module's directional_accuracy will therefore differ slightly from the published summary.directional_accuracy.logit.",
+    "n_lambda_grid_points": 21,
+    "n_plans_scored": 94,
+    "self_check_weighted_mae_logit": {
+      "passed": true,
+      "published": 0.012347926074570302,
+      "recomputed": 0.012347926074570302,
+      "tolerance": 1e-12
+    },
+    "source_artifact": "backtest_result.json",
+    "source_metadata": {
+      "eligibles_2024": 771696.0,
+      "n_bounds_draws": 1000,
+      "primary_bounds_variant": "logit",
+      "seed": 42,
+      "suppressed_both_years_plan_count": 3,
+      "year1": 2024,
+      "year2": 2025
+    }
+  }
+}
