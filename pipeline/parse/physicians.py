@@ -23,6 +23,11 @@ Outputs:
 * ``data/processed/physicians.json`` -- the aggregated physician-supply
   summary the app exports (unique clinicians, orgs, telehealth share, top
   specialties/organizations).
+* ``data/processed/network_inputs.json`` -- the network-designer inputs the
+  app exports: the top ``NETWORK_MAX_ORGS`` medical groups with per-specialty
+  clinician counts and ZCTA presence (indexed into a shared ZCTA list), so
+  the UI can assemble a hypothetical network from real local groups and
+  score it against configurable adequacy targets.
 
 What this deliberately is NOT: a plan-network table. CMS publishes no
 physician<->MA-plan-network linkage, so physician supply is descriptive
@@ -48,6 +53,10 @@ CHUNK_ROWS = 250_000
 
 TOP_SPECIALTIES_N = 20
 TOP_ORGS_N = 15
+
+# Network-designer inputs: cap the org list so the exported artifact stays
+# small (the long tail of 1-2-clinician groups adds bytes, not design options).
+NETWORK_MAX_ORGS = 150
 
 # canonical name -> known CMS header aliases (matched case/space/punctuation-
 # insensitively via _normalize_header). First alias found wins.
@@ -293,6 +302,69 @@ def build_summary(df: pd.DataFrame) -> dict:
     }
 
 
+def build_network_inputs(df: pd.DataFrame, max_orgs: int = NETWORK_MAX_ORGS) -> dict:
+    """Row-level Maricopa table -> the network-designer input dict written to
+    data/processed/network_inputs.json. Pure: DataFrame in, plain dict out.
+
+    Shape:
+      zctas: sorted list of every ZCTA with at least one clinician (the
+        shared index space for the per-org ``zcta_idx`` lists).
+      organizations: top ``max_orgs`` groups by unique-clinician count, each
+        with per-specialty {clinicians, zcta_idx} (unique NPIs / distinct
+        practice ZCTAs for that specialty within that group).
+
+    Known limitation (documented for the UI): counts are per-group, so a
+    clinician credentialed with two selected groups is counted in both --
+    per-org NPI lists would allow exact dedupe but blow the artifact budget.
+    """
+    with_org = df[(df["org_pac_id"] != "") & (df["primary_specialty"] != "")]
+
+    zctas = sorted(set(with_org["zip5"]))
+    zcta_index = {z: i for i, z in enumerate(zctas)}
+
+    org_sizes = with_org.groupby("org_pac_id")["npi"].nunique().sort_values(ascending=False)
+    org_names = (
+        with_org[with_org["org_name"] != ""]
+        .groupby("org_pac_id")["org_name"]
+        .agg(lambda s: s.value_counts().sort_index().sort_values(ascending=False, kind="stable").index[0])
+    )
+    keep_orgs = sorted(
+        org_sizes.items(), key=lambda item: (-item[1], str(org_names.get(item[0], item[0])))
+    )[:max_orgs]
+
+    organizations = []
+    for pac_id, size in keep_orgs:
+        rows = with_org[with_org["org_pac_id"] == pac_id]
+        specialties = {}
+        for specialty, spec_rows in rows.groupby("primary_specialty"):
+            specialties[specialty] = {
+                "clinicians": int(spec_rows["npi"].nunique()),
+                "zcta_idx": sorted({zcta_index[z] for z in spec_rows["zip5"]}),
+            }
+        organizations.append(
+            {
+                "org_pac_id": pac_id,
+                "org_name": str(org_names.get(pac_id, pac_id)),
+                "clinicians": int(size),
+                "specialties": dict(sorted(specialties.items())),
+            }
+        )
+
+    return {
+        "metadata": {
+            "source": "CMS Doctors and Clinicians National Downloadable File (Provider Data Catalog)",
+            "dataset_id": "mj5m-pzi6",
+            "county_fips": settings.COUNTY_FIPS,
+            "county_name": settings.COUNTY_NAME,
+            "max_orgs": max_orgs,
+            "org_count_total": int(org_sizes.shape[0]),
+            "per_group_counts_note": "clinicians credentialed with multiple groups count once per group",
+        },
+        "zctas": zctas,
+        "organizations": organizations,
+    }
+
+
 # --- entry point ---------------------------------------------------------------
 
 
@@ -315,9 +387,14 @@ def run() -> tuple[pd.DataFrame, dict]:
     df.to_parquet(settings.INTERIM_DIR / "physicians_maricopa.parquet", index=False)
 
     summary = build_summary(df)
+    network_inputs = build_network_inputs(df)
     settings.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = settings.PROCESSED_DIR / "physicians.json"
-    out_path.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
+    (settings.PROCESSED_DIR / "physicians.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n"
+    )
+    (settings.PROCESSED_DIR / "network_inputs.json").write_text(
+        json.dumps(network_inputs, indent=2, sort_keys=True) + "\n"
+    )
     return df, summary
 
 

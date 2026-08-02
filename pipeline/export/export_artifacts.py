@@ -2,7 +2,7 @@
 
 Reads the committed ``data/processed/*.json`` artifacts (plus, via
 ``choice_model.predict``'s crosswalk logic, ``data/interim/
-plan_crosswalk_2024_2025.parquet``) and writes seven small, deterministic,
+plan_crosswalk_2024_2025.parquet``) and writes eight small, deterministic,
 UI-ready JSON files into ``app/src/data/``:
 
   * ``market.json`` -- both years' plan rosters (trimmed to display fields),
@@ -35,6 +35,10 @@ UI-ready JSON files into ``app/src/data/``:
     roster) with the same ``available`` flag contract as personas.json.
     Descriptive context only -- CMS publishes no physician<->plan-network
     linkage, so this never feeds the choice model.
+  * ``network_inputs.json`` -- passthrough of ``data/processed/
+    network_inputs.json`` (top medical groups x specialty x ZCTA presence,
+    for the hypothetical network-designer page), same ``available`` flag
+    contract.
 
 Every ``build_*`` function below is pure (plain dicts/lists in, plain dict
 out) and unit-tested against small synthetic fixtures; ``build_all`` is the
@@ -383,6 +387,19 @@ def build_physicians(physicians_file: dict | None) -> dict:
     }
 
 
+def build_network_inputs(network_inputs_file: dict | None) -> dict:
+    """`data/processed/network_inputs.json` (if it exists) -> the app's
+    network_inputs.json, same available-flag contract as personas/physicians."""
+    if network_inputs_file is None:
+        return {"available": False, "zctas": [], "organizations": []}
+    return {
+        "available": True,
+        "metadata": network_inputs_file.get("metadata", {}),
+        "zctas": network_inputs_file.get("zctas", []),
+        "organizations": network_inputs_file.get("organizations", []),
+    }
+
+
 # --- real-file I/O -------------------------------------------------------------------
 
 
@@ -424,6 +441,9 @@ def build_all(processed_dir: Path | None = None, app_data_dir: Path | None = Non
     physicians_path = src_dir / "physicians.json"
     physicians_file = _load_json(physicians_path) if physicians_path.exists() else None
 
+    network_inputs_path = src_dir / "network_inputs.json"
+    network_inputs_file = _load_json(network_inputs_path) if network_inputs_path.exists() else None
+
     crosswalk_map = predict.load_crosswalk_map()
 
     artifacts = {
@@ -439,6 +459,7 @@ def build_all(processed_dir: Path | None = None, app_data_dir: Path | None = Non
         ),
         "personas.json": build_personas(personas_file),
         "physicians.json": build_physicians(physicians_file),
+        "network_inputs.json": build_network_inputs(network_inputs_file),
     }
 
     for filename, data in artifacts.items():

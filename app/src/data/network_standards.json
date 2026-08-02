@@ -1,0 +1,118 @@
+{
+  "_comment": "Adequacy specialty types evaluated by the network designer, mapping CMS Doctors & Clinicians primary_specialty values onto each type. target_ratio_per_1000 is the minimum providers per 1,000 enrollees; ONLY ratios corroborated by published CMS guidance summaries are filled in -- null means 'no verified target; the designer reports the achieved ratio without a pass/fail'. Before any compliance use, replace these with the county's official values from CMS's HSD Reference Table (see source URLs) -- this file is deliberately hand-editable for exactly that.",
+  "sources": [
+    "https://www.cms.gov/files/document/medicare-advantage-and-section-1876-cost-plan-network-adequacy-guidance-12-09-2024.pdf",
+    "https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-422/subpart-C/section-422.116"
+  ],
+  "specialties": [
+    {
+      "key": "primary_care",
+      "label": "Primary care",
+      "dac_specialties": [
+        "FAMILY PRACTICE",
+        "FAMILY MEDICINE",
+        "INTERNAL MEDICINE",
+        "GENERAL PRACTICE",
+        "GERIATRIC MEDICINE"
+      ],
+      "target_ratio_per_1000": 1.67,
+      "target_source": "CMS MA Network Adequacy Criteria Guidance PCP ratio, as cited by KFF/MedPAC summaries; verify against the current HSD Reference Table for Maricopa's county type"
+    },
+    {
+      "key": "cardiology",
+      "label": "Cardiology",
+      "dac_specialties": [
+        "CARDIOVASCULAR DISEASE (CARDIOLOGY)",
+        "CARDIOLOGY",
+        "INTERVENTIONAL CARDIOLOGY",
+        "ADVANCED HEART FAILURE AND TRANSPLANT CARDIOLOGY"
+      ],
+      "target_ratio_per_1000": 0.27,
+      "target_source": "CMS MA Network Adequacy Criteria Guidance cardiology ratio, as cited by published summaries; verify against the current HSD Reference Table"
+    },
+    {
+      "key": "dermatology",
+      "label": "Dermatology",
+      "dac_specialties": ["DERMATOLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "endocrinology",
+      "label": "Endocrinology",
+      "dac_specialties": ["ENDOCRINOLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "gastroenterology",
+      "label": "Gastroenterology",
+      "dac_specialties": ["GASTROENTEROLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "general_surgery",
+      "label": "General surgery",
+      "dac_specialties": ["GENERAL SURGERY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "nephrology",
+      "label": "Nephrology",
+      "dac_specialties": ["NEPHROLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "neurology",
+      "label": "Neurology",
+      "dac_specialties": ["NEUROLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "oncology",
+      "label": "Oncology (medical)",
+      "dac_specialties": ["MEDICAL ONCOLOGY", "HEMATOLOGY/ONCOLOGY", "HEMATOLOGY-ONCOLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "ophthalmology",
+      "label": "Ophthalmology",
+      "dac_specialties": ["OPHTHALMOLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "orthopedic_surgery",
+      "label": "Orthopedic surgery",
+      "dac_specialties": ["ORTHOPEDIC SURGERY", "ORTHOPEDIC SURGERY (ORTHOPEDICS)"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "psychiatry",
+      "label": "Psychiatry",
+      "dac_specialties": ["PSYCHIATRY", "GERIATRIC PSYCHIATRY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "pulmonology",
+      "label": "Pulmonology",
+      "dac_specialties": ["PULMONARY DISEASE"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    },
+    {
+      "key": "urology",
+      "label": "Urology",
+      "dac_specialties": ["UROLOGY"],
+      "target_ratio_per_1000": null,
+      "target_source": null
+    }
+  ]
+}

@@ -191,6 +191,40 @@ export interface PhysiciansFile {
   top_organizations: PhysicianOrgCount[];
 }
 
+// --- network_inputs.json / network_standards.json -------------------------------------
+
+export interface NetworkOrgSpecialty {
+  clinicians: number;
+  zcta_idx: number[];
+}
+
+export interface NetworkOrganization {
+  org_pac_id: string;
+  org_name: string;
+  clinicians: number;
+  specialties: Record<string, NetworkOrgSpecialty>;
+}
+
+export interface NetworkInputsFile {
+  available: boolean;
+  metadata?: Record<string, unknown>;
+  zctas: string[];
+  organizations: NetworkOrganization[];
+}
+
+export interface NetworkStandardSpecialty {
+  key: string;
+  label: string;
+  dac_specialties: string[];
+  target_ratio_per_1000: number | null;
+  target_source: string | null;
+}
+
+export interface NetworkStandardsFile {
+  sources: string[];
+  specialties: NetworkStandardSpecialty[];
+}
+
 // --- scenario_inputs.json -------------------------------------------------------------
 
 export interface ScenarioPlanRecord {

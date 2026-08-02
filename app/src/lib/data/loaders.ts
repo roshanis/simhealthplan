@@ -17,6 +17,8 @@ import archetypesRaw from "@/data/archetypes.json";
 import backtestRaw from "@/data/backtest.json";
 import coefficientsRaw from "@/data/coefficients.json";
 import marketRaw from "@/data/market.json";
+import networkInputsRaw from "@/data/network_inputs.json";
+import networkStandardsRaw from "@/data/network_standards.json";
 import personasRaw from "@/data/personas.json";
 import physiciansRaw from "@/data/physicians.json";
 import scenarioInputsRaw from "@/data/scenario_inputs.json";
@@ -25,6 +27,8 @@ import type {
   ArchetypesDisplayFile,
   BacktestData,
   MarketData,
+  NetworkInputsFile,
+  NetworkStandardsFile,
   PersonasFile,
   PhysiciansFile,
   ScenarioInputsFile,
@@ -36,4 +40,6 @@ export const archetypesDisplay = archetypesRaw as unknown as ArchetypesDisplayFi
 export const coefficients = coefficientsRaw as unknown as CoefficientsFile;
 export const personas = personasRaw as unknown as PersonasFile;
 export const physicians = physiciansRaw as unknown as PhysiciansFile;
+export const networkInputs = networkInputsRaw as unknown as NetworkInputsFile;
+export const networkStandards = networkStandardsRaw as unknown as NetworkStandardsFile;
 export const scenarioInputs = scenarioInputsRaw as unknown as ScenarioInputsFile;

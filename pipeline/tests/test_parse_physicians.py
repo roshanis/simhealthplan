@@ -140,6 +140,39 @@ def test_build_summary_metadata_documents_proxy_and_no_network_linkage():
     assert metadata["network_linkage"] is False
 
 
+def test_build_network_inputs_orgs_specialties_and_zcta_index():
+    inputs = physicians.build_network_inputs(_maricopa_df())
+
+    assert inputs["zctas"] == ["85004", "85201", "85304"]
+    orgs = {o["org_name"]: o for o in inputs["organizations"]}
+    assert set(orgs) == {"BANNER HEALTH", "VALLEY CARE MEDICAL GROUP"}
+
+    banner = orgs["BANNER HEALTH"]
+    assert banner["clinicians"] == 2
+    # Smith (2 addresses) + Nguyen: IM at Phoenix+Mesa, cardiology at Phoenix.
+    assert banner["specialties"]["INTERNAL MEDICINE"] == {"clinicians": 1, "zcta_idx": [0, 1]}
+    assert banner["specialties"]["CARDIOVASCULAR DISEASE (CARDIOLOGY)"] == {
+        "clinicians": 1,
+        "zcta_idx": [0],
+    }
+
+    valley = orgs["VALLEY CARE MEDICAL GROUP"]
+    assert valley["specialties"]["INTERNAL MEDICINE"] == {"clinicians": 1, "zcta_idx": [2]}
+
+    assert inputs["metadata"]["org_count_total"] == 2
+
+
+def test_build_network_inputs_caps_org_list():
+    inputs = physicians.build_network_inputs(_maricopa_df(), max_orgs=1)
+    assert len(inputs["organizations"]) == 1
+    # Largest group by unique clinicians survives the cap.
+    assert inputs["organizations"][0]["org_name"] == "BANNER HEALTH"
+    # The cap and the true total are both recorded, so the UI can say
+    # "top N of M" honestly.
+    assert inputs["metadata"]["max_orgs"] == 1
+    assert inputs["metadata"]["org_count_total"] == 2
+
+
 def test_build_summary_empty_input():
     empty = pd.DataFrame(columns=physicians.INTERIM_COLUMNS)
     summary = physicians.build_summary(empty)

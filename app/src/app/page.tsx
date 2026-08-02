@@ -61,9 +61,14 @@ export default function ReportPage() {
           <span className="font-semibold" style={{ color: "var(--text-primary)" }}>
             simhealthplan
           </span>
-          <Link href="/scenario" className="rounded-md border px-3 py-1.5" style={{ borderColor: "var(--border)" }}>
-            Try a what-if scenario →
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link href="/network" className="rounded-md border px-3 py-1.5" style={{ borderColor: "var(--border)" }}>
+              Design a network →
+            </Link>
+            <Link href="/scenario" className="rounded-md border px-3 py-1.5" style={{ borderColor: "var(--border)" }}>
+              Try a what-if scenario →
+            </Link>
+          </div>
         </nav>
         <div className="flex flex-col gap-3">
           <p className="text-xs font-medium uppercase tracking-wide" style={{ color: "var(--text-secondary)" }}>
