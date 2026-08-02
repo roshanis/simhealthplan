@@ -1,6 +1,7 @@
 /**
  * The Phase 7 leadership report: verdict, share-shift chart, persona
- * cards, market snapshot, and methodology, in that order. Server component
+ * cards, market snapshot, evaluation diagnostics, and methodology, in that
+ * order. Server component
  * -- every artifact below is a build-time static import (`lib/data/loaders.ts`),
  * so this route renders fully server-side with zero request-time I/O and
  * zero environment variables required.
@@ -21,13 +22,14 @@
 
 import Link from "next/link";
 
+import { DiagnosticsPanel } from "@/components/report/DiagnosticsPanel";
 import { LiveLlmButton } from "@/components/report/LiveLlmButton";
 import { MarketSnapshot } from "@/components/report/MarketSnapshot";
 import { Methodology } from "@/components/report/Methodology";
 import { PersonaCards } from "@/components/report/PersonaCards";
 import { ShareShiftChart } from "@/components/report/ShareShiftChart";
 import { VerdictSection } from "@/components/report/VerdictSection";
-import { archetypesDisplay, backtest, market, personas } from "@/lib/data/loaders";
+import { archetypesDisplay, backtest, diagnostics, market, personas } from "@/lib/data/loaders";
 import { formatCount } from "@/lib/format";
 import { buildMarketFacts } from "@/lib/report/marketFacts";
 import { buildPersonaCards, buildPersonaLookup, buildPlanLookup } from "@/lib/report/personas";
@@ -137,6 +139,14 @@ export default function ReportPage() {
         </div>
         <MarketSnapshot plansByYear={market.plans} facts={marketFacts} years={years} />
       </section>
+
+      {/* Placed directly before Methodology, not up near the verdict: this panel
+          quantifies exactly the compromises Methodology documents qualitatively
+          (e.g. the "coefficient-jitter" item explains the p10/p50/p90 bounds are a
+          heuristic, not a formal confidence interval -- Finding 1 below is how badly
+          that heuristic under-covers in practice). Reading the quantified failure
+          right before the methodological explanation of why is the natural order. */}
+      <DiagnosticsPanel diagnostics={diagnostics} />
 
       <Methodology />
 
