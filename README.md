@@ -35,6 +35,34 @@ direction**. Per the build spec, either outcome is a valid result — the
 deliverable is the rigorous evaluation methodology. The LLM-blended variant
 is pending (requires `OPENAI_API_KEY`).
 
+### What the diagnostics say (`make diagnostics`)
+
+Three post-hoc checks over the same backtest, each reported honestly even
+where the answer is unflattering:
+
+- **The confidence bands are overconfident.** Only 17 of 94 plans (18.1%;
+  43.2% enrollment-weighted) land inside the nominal **80%** p10–p90 Monte
+  Carlo interval. Misses are asymmetric — 53 above p90 vs 24 below p10 —
+  which indicates systematic upward bias in the point estimate, not just
+  underestimated variance.
+- **Shrinkage toward the baseline is a degenerate fix.** Damping the
+  prediction as `λ·logit + (1−λ)·no_change` picks an oracle λ\* of **0.00** —
+  the "best" damped predictor simply *is* the no-change baseline.
+  Leave-one-plan-out CV (an honest out-of-sample estimate, unlike the oracle
+  value) agrees: 93 of 94 folds also choose 0.00. There is no genuine
+  shrinkage win here, and the file says so rather than quoting the oracle
+  number as an improvement.
+- **The error is one plan.** `H0321-002` (UnitedHealthcare Dual Complete
+  AZ-S001, a D-SNP with 41,617 enrollees) alone is **57.1%** of the total
+  size-weighted MAE: the model predicted its share would roughly double
+  (5.4% → 10.7%); it stayed flat at 5.1%. Four plans reach 80% of all error.
+  The 13 new-entrant plans contribute exactly zero by construction (no 2024
+  enrollment ⇒ no weight), a documented blind spot of a size-weighted metric.
+
+The practical read: the magnitude gap is concentrated in dual-eligible SNP
+growth, not spread diffusely — so the next modeling move is the D-SNP
+inertia/eligibility treatment, not a global reweighting.
+
 ## How it works
 
 1. **Ingest** (`make ingest`) — scripted, cached, sha256-manifested downloads:
@@ -83,7 +111,8 @@ simhealthplan/
 │   ├── interim/              #   gitignored: intermediate parquet
 │   ├── processed/            #   tracked: canonical JSON artifacts
 │   └── cache/llm/            #   tracked: cached LLM responses (reproducible)
-└── Makefile                  # ingest | archetypes | calibrate | personas | backtest | export | test
+└── Makefile                  # ingest | archetypes | calibrate | personas |
+                              #   backtest | diagnostics | export | golden | test
 ```
 
 ## Quickstart
@@ -117,12 +146,36 @@ The app builds and serves the full report with **zero environment variables**.
 > set **Root Directory to `app/`** so Vercel builds and deploys only the
 > Next.js app, not the Python pipeline.
 
+### Continuous integration
+
+`.github/workflows/ci.yml` runs on every push and pull request: one job for
+the Python pipeline (`uv run pytest`) and one for the app (`npm ci`,
+`npm test -- --run`, `npm run build`), in parallel. Everything in CI runs
+**keyless** — the pipeline's tests are hermetic without downloaded data, and
+the LLM pass is skipped absent an API key.
+
 ## Reproducibility
 
 Fixed seed (42) everywhere; pinned dependencies (`uv.lock`, `package-lock.json`);
 every download logged with URL + sha256 in `data/raw_cache/manifest.json`;
-LLM responses disk-cached and committed (warm reruns make zero API calls);
-processed artifacts rebuild byte-identically.
+LLM responses disk-cached and committed (warm reruns make zero API calls).
+
+**Processed artifacts rebuild deterministically on a given machine, but not
+byte-identically across machines.** Regeneration is free of hidden randomness
+and key-ordering drift, so repeated builds in one environment are byte-equal.
+Across environments, the final digits of floats that fell out of BLAS-backed
+numpy arithmetic depend on the host's BLAS/libm build:
+
+- the golden parity fixture moves ~1 ULP (measured: 4 of 3148 float leaves,
+  worst relative delta 2.2e-16, against machine epsilon 2.22e-16);
+- `coefficients.json` moves ~1e-6 relative, because L-BFGS-B amplifies that
+  rounding across the ~17 iterations it takes to converge.
+
+Neither is a modeling difference, and both are orders of magnitude below any
+figure this report rounds to. So the parity test asserts structure exactly and
+floats at 1e-12 relative — the same tolerance the Python↔TypeScript parity
+contract already uses — rather than comparing bytes, which would fail on any
+host but the one that produced the committed file.
 
 ## Data sources (all public)
 

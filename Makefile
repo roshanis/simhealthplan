@@ -1,4 +1,4 @@
-.PHONY: test pipeline-test app-test app-build ingest archetypes calibrate personas backtest diagnostics export golden
+.PHONY: test pipeline-test app-test app-build ingest archetypes calibrate personas backtest diagnostics export export-diagnostics golden
 
 ## Run the full test suite (pipeline + app)
 test: pipeline-test app-test
@@ -59,6 +59,14 @@ backtest:
 ## so unlike `backtest` this re-runs anywhere without `make ingest`.
 diagnostics:
 	cd pipeline && uv run python -m backtest.diagnostics
+
+## Export the diagnostics artifact into the app (app/src/data/diagnostics.json)
+## for the report's evaluation-diagnostics panel. Kept separate from `export`
+## on purpose: `export` needs the data/interim/ crosswalk (see below) and so
+## cannot run in a fresh clone, whereas this reads only
+## data/processed/backtest_diagnostics.json and always can.
+export-diagnostics:
+	cd pipeline && uv run python -m export.export_diagnostics
 
 ## --- Phase 6/7: export & parity fixtures ---
 

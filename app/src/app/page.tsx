@@ -72,10 +72,17 @@ export default function ReportPage() {
             Did a persona-grounded choice model predict last AEP&rsquo;s actual plan-share shifts?
           </h1>
           <p className="max-w-3xl text-base" style={{ color: "var(--text-secondary)" }}>
-            {formatCount(market.market_totals["2024"]?.eligibles ?? 0)} synthetic Medicare-eligible beneficiaries,
-            modeled as {archetypesDisplay.metadata.archetype_count} weighted archetypes, choosing among{" "}
-            {market.market_totals["2024"]?.plan_count} (2024) → {market.market_totals["2025"]?.plan_count} (2025)
-            real Medicare Advantage plans -- backtested against actual CMS enrollment.
+            {/* The archetypes are 2024-anchored (IPF against 2024 ACS marginals -- see Methodology), so the
+                "modeled as N archetypes" population figure must come from that same 2024 cohort, not the 2025
+                market (790,307 eligibles, ~2.4% larger). Deriving straight from `archetypes.json`'s own metadata
+                -- rather than reaching into `market.json`'s 2024 total, which merely happens to match today --
+                means this sentence can never drift out of sync with what the archetypes actually sum to, even if
+                a future data refresh changes the 2024 market total independently of the archetype weights. */}
+            {formatCount(archetypesDisplay.metadata.population_total ?? market.market_totals["2024"]?.eligibles ?? 0)}{" "}
+            synthetic Medicare-eligible beneficiaries, modeled as {archetypesDisplay.metadata.archetype_count} weighted
+            archetypes, choosing among {market.market_totals["2024"]?.plan_count} (2024) →{" "}
+            {market.market_totals["2025"]?.plan_count} (2025) real Medicare Advantage plans -- backtested against
+            actual CMS enrollment.
           </p>
         </div>
       </header>

@@ -20,6 +20,56 @@ function ppLabel(value: number): string {
   return formatSignedPP(value, 3);
 }
 
+/**
+ * One-click scenario presets. Each references a REAL `plan_key` present in
+ * `scenario_inputs.json` (verified against the exported data, not
+ * invented) and overrides only the fields it cares about -- every other
+ * control resets to that plan's own baseline via `selectPlan`, exactly as
+ * if a person had picked the plan from the dropdown themselves.
+ *
+ * `premiumCutDropDental` is the build spec's canonical example scenario
+ * ("what if Plan X cut premium $15 and dropped dental?"), applied to
+ * H0321-002 (UHC Dual Complete AZ-S001), the market's single largest plan
+ * by 2024 enrollment (40,658 -- see `scenario_inputs.json`).
+ */
+interface ScenarioPreset {
+  id: string;
+  title: string;
+  description: string;
+  planKey: string;
+  premiumDelta?: number;
+  starDelta?: number;
+  dental?: boolean;
+  vision?: boolean;
+  hearing?: boolean;
+  otc?: boolean;
+}
+
+const SCENARIO_PRESETS: ScenarioPreset[] = [
+  {
+    id: "premium-cut-drop-dental",
+    title: "Cut premium $15, drop dental",
+    description: "UHC Dual Complete AZ-S001 -- the market's largest plan (build spec's canonical example).",
+    planKey: "H0321-002",
+    premiumDelta: -15,
+    dental: false,
+  },
+  {
+    id: "add-dental",
+    title: "Add comprehensive dental",
+    description: "AZ Blue Best Life Classic -- a large plan (21,134 enrolled) that currently lacks the benefit.",
+    planKey: "H0302-006",
+    dental: true,
+  },
+  {
+    id: "premium-hike",
+    title: "Raise premium $20",
+    description: "Humana Gold Plus H0028-074 -- currently $0/mo, third-largest plan in the market.",
+    planKey: "H0028-074",
+    premiumDelta: 20,
+  },
+];
+
 export function ScenarioDemo({
   plans,
   baselineShares,
@@ -28,6 +78,14 @@ export function ScenarioDemo({
   baselineShares: Record<string, number>;
 }) {
   const sortedPlans = useMemo(() => [...plans].sort((a, b) => b.enrollment - a.enrollment), [plans]);
+  // Defensive: only offer presets whose plan_key actually exists in the
+  // exported `scenario_inputs.json` roster passed in as `plans`, so a
+  // future data refresh that drops/renames a plan can't leave a dead
+  // preset button in the UI.
+  const availablePresets = useMemo(
+    () => SCENARIO_PRESETS.filter((preset) => plans.some((p) => p.plan_key === preset.planKey)),
+    [plans],
+  );
   const [planKey, setPlanKey] = useState(sortedPlans[0]?.plan_key ?? "");
   const plan = plans.find((p) => p.plan_key === planKey) ?? sortedPlans[0];
 
@@ -53,6 +111,24 @@ export function ScenarioDemo({
     setPremiumDelta(0);
     setStarDelta(0);
     setResult(null);
+  }
+
+  /** Applies a preset through the exact same state setters manual entry
+   * uses -- `selectPlan` first (so every control resets to that plan's own
+   * baseline, same as clicking it in the dropdown), then the preset's
+   * explicit overrides. No separate code path to `/api/scenario`; the
+   * "Run scenario" button and its existing validation (`changes.length
+   * === 0` disables it) still gate the request exactly as they do for a
+   * fully manual selection. */
+  function applyPreset(preset: ScenarioPreset) {
+    if (!plans.some((p) => p.plan_key === preset.planKey)) return;
+    selectPlan(preset.planKey);
+    if (preset.premiumDelta !== undefined) setPremiumDelta(preset.premiumDelta);
+    if (preset.starDelta !== undefined) setStarDelta(preset.starDelta);
+    if (preset.dental !== undefined) setDental(preset.dental);
+    if (preset.vision !== undefined) setVision(preset.vision);
+    if (preset.hearing !== undefined) setHearing(preset.hearing);
+    if (preset.otc !== undefined) setOtc(preset.otc);
   }
 
   const changes = useMemo(() => {
@@ -98,6 +174,33 @@ export function ScenarioDemo({
   return (
     <div className="flex flex-col gap-8 lg:flex-row">
       <div className="flex w-full flex-col gap-5 lg:max-w-sm">
+        {availablePresets.length > 0 && (
+          <div className="flex flex-col gap-2">
+            <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
+              Try a preset
+            </span>
+            <div className="flex flex-col gap-2">
+              {availablePresets.map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  onClick={() => applyPreset(preset)}
+                  className="flex flex-col items-start gap-0.5 rounded-md border px-3 py-2 text-left text-sm"
+                  style={{ borderColor: "var(--border)", background: "var(--surface-1)", color: "var(--text-primary)" }}
+                >
+                  <span className="font-medium">{preset.title}</span>
+                  <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+                    {preset.description}
+                  </span>
+                </button>
+              ))}
+            </div>
+            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+              Populates the controls below -- still requires &ldquo;Run scenario&rdquo; to recompute.
+            </p>
+          </div>
+        )}
+
         <label className="flex flex-col gap-1 text-sm" style={{ color: "var(--text-secondary)" }}>
           2025 plan
           <select
