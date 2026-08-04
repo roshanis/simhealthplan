@@ -203,3 +203,187 @@ export interface ScenarioInputsFile {
   plans: ScenarioPlanRecord[];
   archetypes: ScenarioArchetypeRecord[];
 }
+
+// --- diagnostics.json ----------------------------------------------------------------
+//
+// Written by `pipeline/export/export_diagnostics.py` (`make export-diagnostics`), a
+// trimmed pass over `data/processed/backtest_diagnostics.json` (itself written by
+// `pipeline/backtest/diagnostics.py`, `make diagnostics`). Three post-hoc analyses over
+// the already-committed backtest result -- see that module's docstring for the full
+// methodology. These types mirror the exported JSON's shape field-for-field so the
+// report panel (`components/report/DiagnosticsPanel.tsx`) can read every displayed
+// number straight off the artifact, never hand-recompute or hardcode one.
+
+export interface DiagnosticsCoveragePlanLevel {
+  n_above: number;
+  n_below: number;
+  n_covered: number;
+  n_evaluated: number;
+  unweighted_coverage: number;
+  weighted_coverage: number;
+}
+
+export interface DiagnosticsCoverageReconciliation {
+  n_bounds_entries_plan_level: number;
+  n_bounds_entries_total: number;
+  n_per_plan_rows_plan_level: number;
+  n_per_plan_rows_total: number;
+  outside_key_present_in_bounds: boolean;
+}
+
+/** Analysis A: does the nominal p10-p90 Monte Carlo interval actually cover ~80% of
+ * plans' realized 2025 share? `asymmetry_note` explains why a lopsided n_above/n_below
+ * split (rather than a merely-too-narrow-but-symmetric split) points to point-estimate
+ * BIAS, not just underestimated variance -- the panel must surface that distinction,
+ * not just the raw coverage percentage. */
+export interface DiagnosticsCoverage {
+  asymmetry_note: string;
+  calibration_tolerance: number;
+  nominal_coverage: number;
+  nominal_interval: string;
+  plan_level: DiagnosticsCoveragePlanLevel;
+  reconciliation: DiagnosticsCoverageReconciliation;
+  verdict_unweighted: string;
+  verdict_weighted: string;
+}
+
+export interface DiagnosticsDampingPoint {
+  directional_accuracy: number;
+  lambda: number;
+  weighted_mae: number;
+}
+
+export interface DiagnosticsDampingEndpoints {
+  lambda_0_is_no_change_baseline: DiagnosticsDampingPoint;
+  lambda_1_is_pure_logit: DiagnosticsDampingPoint;
+}
+
+export interface DiagnosticsLopoCvDistribution {
+  /** Keyed by `lambda.toFixed(2)`, e.g. `"0.00"` -> fold count. */
+  counts: Record<string, number>;
+  max: number;
+  mean: number;
+  min: number;
+  n: number;
+}
+
+/** The HONEST out-of-sample estimate: each plan's fold chooses lambda using every
+ * OTHER plan only, then is scored alone at that fold-chosen lambda. Never present this
+ * next to the oracle figure without labelling which is which -- see `oracle` below. */
+export interface DiagnosticsLopoCv {
+  chosen_lambda_by_plan: Record<string, number>;
+  chosen_lambda_distribution: DiagnosticsLopoCvDistribution;
+  description: string;
+  directional_accuracy: number;
+  n_plans: number;
+  weighted_mae: number;
+}
+
+/** The IN-SAMPLE/oracle lambda*: argmin weighted MAE over the exact plans/year being
+ * scored. An upper bound on what damping could achieve with hindsight, not a validated
+ * result -- `caveat` says so explicitly and the panel must repeat that framing rather
+ * than reporting this number as if it generalizes. */
+export interface DiagnosticsOracle {
+  caveat: string;
+  directional_accuracy: number;
+  lambda: number;
+  weighted_mae: number;
+}
+
+export interface DiagnosticsDampingVerdict {
+  lopo_cv_beats_no_change_on_mae: boolean;
+  oracle_beats_no_change_on_mae: boolean;
+  oracle_lambda: number;
+  summary: string;
+}
+
+/** Analysis B: `share_damped(lambda) = lambda*logit + (1-lambda)*no_change`, swept
+ * across `lambda_grid`. The degenerate finding this panel must state plainly: the
+ * oracle lambda* rounds to 0.00, i.e. the "best" damped predictor simply IS the
+ * no-change baseline -- there is no genuine magnitude improvement available here. */
+export interface DiagnosticsDamping {
+  endpoints: DiagnosticsDampingEndpoints;
+  lambda_grid: number[];
+  leave_one_plan_out_cv: DiagnosticsLopoCv;
+  oracle: DiagnosticsOracle;
+  predictor: string;
+  sweep: DiagnosticsDampingPoint[];
+  verdict: DiagnosticsDampingVerdict;
+}
+
+export interface DiagnosticsErrorSplitGroup {
+  n_plans: number;
+  total_enrollment_2024: number;
+  unweighted_mean_abs_error: number;
+}
+
+/** `new_entrants` (enrollment_2024 === 0) always contribute exactly 0 to the published
+ * size-weighted MAE by construction (zero weight) -- a structural blind spot of the
+ * weighted metric, not evidence the model is accurate for new entrants. `note` states
+ * this explicitly; the panel must surface it rather than let a reader infer accuracy
+ * from the absence of weighted error. */
+export interface DiagnosticsNewEntrantSplit {
+  incumbents: DiagnosticsErrorSplitGroup;
+  new_entrants: DiagnosticsErrorSplitGroup;
+  note: string;
+}
+
+export interface DiagnosticsOrgRollupRow {
+  n_plans: number;
+  org: string;
+  total_contribution: number;
+  total_weight: number;
+}
+
+export interface DiagnosticsTopContributorRow {
+  abs_error: number;
+  contribution: number;
+  cumulative_share_of_total: number;
+  enrollment_2024: number;
+  name: string;
+  org: string;
+  plan_key: string;
+  share_2024: number;
+  share_2025_actual: number;
+  share_2025_pred_logit: number;
+}
+
+/** Analysis C: how concentrated is the published size-weighted MAE across plans?
+ * `top_contributors` is pre-sorted by `contribution` descending with a running
+ * `cumulative_share_of_total`, so `top_contributors[0]` is always the single largest
+ * contributor and `n_plans_to_reach_cumulative_share` gives the panel's "N plans = X%
+ * of all error" headline without it having to walk the array itself. */
+export interface DiagnosticsErrorDecomposition {
+  n_plans_scored: number;
+  n_plans_to_reach_cumulative_share: {
+    "50pct": number;
+    "80pct": number;
+  };
+  new_entrant_vs_incumbent_split: DiagnosticsNewEntrantSplit;
+  org_rollup: DiagnosticsOrgRollupRow[];
+  top_contributors: DiagnosticsTopContributorRow[];
+  total_weighted_mae_reconstructed: number;
+}
+
+export interface DiagnosticsSelfCheck {
+  passed: boolean;
+  published: number;
+  recomputed: number;
+  tolerance: number;
+}
+
+export interface DiagnosticsMetadata {
+  directional_accuracy_caveat: string;
+  n_lambda_grid_points: number;
+  n_plans_scored: number;
+  self_check_weighted_mae_logit: DiagnosticsSelfCheck;
+  source_artifact: string;
+  source_metadata: Record<string, unknown>;
+}
+
+export interface DiagnosticsFile {
+  coverage: DiagnosticsCoverage;
+  damping: DiagnosticsDamping;
+  error_decomposition: DiagnosticsErrorDecomposition;
+  metadata: DiagnosticsMetadata;
+}

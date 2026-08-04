@@ -298,12 +298,47 @@ def test_real_deterministic_build_is_byte_identical(tmp_path):
 
 
 @pytest.mark.integration
-def test_real_output_file_written():
+def test_real_output_file_written(tmp_path):
+    """`build()` writes a well-formed artifact to the path it is given.
+
+    Deliberately writes to `tmp_path`, NEVER to the default
+    `data/processed/coefficients.json`. This test used to call a bare
+    `calibrate.build()`, which overwrote that **tracked** artifact as a side
+    effect of merely running the suite. Two things went wrong because of it:
+
+      1. Running `pytest` dirtied the working tree with an unrequested
+         recalibration -- an ~1e-6 relative wobble on every coefficient,
+         because L-BFGS-B amplifies the tiny per-machine differences in
+         BLAS/libm rounding across the ~17 iterations it takes to converge.
+      2. Worse, it poisoned a LATER test in the same run: this file sorts
+         before `test_golden_parity.py`, which regenerates the parity fixture
+         *from* `coefficients.json` and compares it to the committed one. So
+         the full suite reliably failed a test that passed in isolation --
+         an order-dependent self-poisoning that looked like a genuine parity
+         regression and cost real debugging time to attribute.
+
+    The default-path behaviour is still asserted below, without writing to it.
+    """
     if not _real_data_available():
         pytest.skip("archetypes.json / plans_2024.json not present; run `make archetypes calibrate` first")
-    calibrate.build()
-    path = settings.PROCESSED_DIR / "coefficients.json"
+
+    path = tmp_path / "coefficients.json"
+    calibrate.build(output_path=path)
     assert path.exists()
     on_disk = json.loads(path.read_text())
+    assert "base_coefficients" in on_disk
+    assert "metadata" in on_disk
+
+
+@pytest.mark.integration
+def test_real_default_output_path_is_processed_coefficients_json():
+    """Pins the default destination `build()` resolves when `output_path` is
+    None (see `calibrate.build`), so the path contract stays covered even
+    though `test_real_output_file_written` no longer writes to it."""
+    if not _real_data_available():
+        pytest.skip("archetypes.json / plans_2024.json not present; run `make archetypes calibrate` first")
+    default_path = settings.PROCESSED_DIR / "coefficients.json"
+    assert default_path.exists(), "the committed calibration artifact should be present alongside its inputs"
+    on_disk = json.loads(default_path.read_text())
     assert "base_coefficients" in on_disk
     assert "metadata" in on_disk
