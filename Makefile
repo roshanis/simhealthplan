@@ -1,4 +1,4 @@
-.PHONY: test pipeline-test app-test app-build ingest archetypes calibrate personas backtest export
+.PHONY: test pipeline-test app-test app-build ingest archetypes calibrate personas backtest diagnostics export export-diagnostics golden
 
 ## Run the full test suite (pipeline + app)
 test: pipeline-test app-test
@@ -51,7 +51,14 @@ personas:
 backtest:
 	cd pipeline && uv run python -m backtest.run_backtest
 
-## --- Later-phase placeholders (not implemented yet) ---
+## Post-hoc scoring diagnostics over data/processed/backtest_result.json:
+## Monte Carlo p10/p90 coverage calibration, the lambda-damped shrinkage
+## sweep (oracle + leave-one-plan-out CV), and the per-plan decomposition of
+## the size-weighted MAE. Writes data/processed/backtest_diagnostics.json.
+## Reads ONLY the committed backtest result -- no data/interim/ dependency,
+## so unlike `backtest` this re-runs anywhere without `make ingest`.
+diagnostics:
+	cd pipeline && uv run python -m backtest.diagnostics
 
 ## Export trimmed, UI-ready JSON bundles from data/processed into app/src/data.
 export:

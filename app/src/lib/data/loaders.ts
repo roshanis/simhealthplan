@@ -1,7 +1,8 @@
 /**
  * Single point of truth for loading the build-time JSON artifacts in
- * `app/src/data/` (written by `pipeline/export/export_artifacts.py`; see
- * `types.ts` for their shapes). Every artifact is a **static ES import**,
+ * `app/src/data/` (written by `pipeline/export/export_artifacts.py`, plus
+ * `diagnostics.json` from the separate `pipeline/export/export_diagnostics.py`;
+ * see `types.ts` for their shapes). Every artifact is a **static ES import**,
  * not an `fs` read -- Next.js inlines these into the server bundle at build
  * time, so both the report page (server component) and the `/api/scenario`
  * route handler read the same in-memory object with zero request-time I/O.
@@ -16,6 +17,7 @@
 import archetypesRaw from "@/data/archetypes.json";
 import backtestRaw from "@/data/backtest.json";
 import coefficientsRaw from "@/data/coefficients.json";
+import diagnosticsRaw from "@/data/diagnostics.json";
 import marketRaw from "@/data/market.json";
 import networkInputsRaw from "@/data/network_inputs.json";
 import networkStandardsRaw from "@/data/network_standards.json";
@@ -26,6 +28,7 @@ import type { CoefficientsFile } from "@/lib/choice-model/types";
 import type {
   ArchetypesDisplayFile,
   BacktestData,
+  DiagnosticsFile,
   MarketData,
   NetworkInputsFile,
   NetworkStandardsFile,
@@ -43,3 +46,7 @@ export const physicians = physiciansRaw as unknown as PhysiciansFile;
 export const networkInputs = networkInputsRaw as unknown as NetworkInputsFile;
 export const networkStandards = networkStandardsRaw as unknown as NetworkStandardsFile;
 export const scenarioInputs = scenarioInputsRaw as unknown as ScenarioInputsFile;
+// `diagnostics.json` (`make export-diagnostics`) is always exported alongside the
+// other Phase 7 artifacts -- unlike `personas.json` it has no `available` flag to
+// branch on, so it's imported unconditionally like `market`/`backtest` above.
+export const diagnostics = diagnosticsRaw as unknown as DiagnosticsFile;

@@ -16,8 +16,11 @@ const pp = formatAbsPP;
 
 /** Derives the MAE stat tile's badge from `summary.beats_naive.logit`
  * directly, rather than a hardcoded literal, so a future backtest rerun
- * that flips the verdict can't silently desync this copy from the data. */
-function maeBadge(beatsNaiveLogit: boolean | null): { status: Status; label: string } {
+ * that flips the verdict can't silently desync this copy from the data.
+ * Exported (rather than kept module-private) so it's unit-testable as a
+ * pure function without rendering -- see
+ * `tests/components/verdict-derivation.test.ts`. */
+export function maeBadge(beatsNaiveLogit: boolean | null): { status: Status; label: string } {
   if (beatsNaiveLogit === null || beatsNaiveLogit === undefined) {
     return { status: "muted", label: "Pending" };
   }
@@ -27,8 +30,9 @@ function maeBadge(beatsNaiveLogit: boolean | null): { status: Status; label: str
 }
 
 /** Derives the directional-accuracy stat tile's badge from a real
- * comparison against both naive baselines, rather than a hardcoded literal. */
-function accuracyBadge(logitAcc: number, noChangeAcc: number, trendAcc: number): { status: Status; label: string } {
+ * comparison against both naive baselines, rather than a hardcoded literal.
+ * Exported for the same pure-function-testability reason as `maeBadge`. */
+export function accuracyBadge(logitAcc: number, noChangeAcc: number, trendAcc: number): { status: Status; label: string } {
   const beatsNoChange = logitAcc >= noChangeAcc;
   const beatsTrend = logitAcc >= trendAcc;
   if (beatsNoChange && beatsTrend) return { status: "good", label: "Better than both baselines" };
