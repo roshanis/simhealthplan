@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a75_84-higher-white-health_status_driven\nAge band: 75-84\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: health_status_driven\nTraits: plan choice driven by ongoing health needs; values broad provider access and care coordination; older senior; increasing focus on health and functional needs; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Eleanor Brooks is a fictional 79-year-old Medicare beneficiary living in Maricopa County, Arizona, with a comfortable retirement income and growing attention to maintaining her mobility and independence. She manages several ongoing health needs and thinks about coverage mainly in terms of reliable specialists, convenient follow-up care, and someone helping coordinate appointments and medications. Her daily life includes walks, household projects, and time with family, though she plans more carefully around fatigue and functional limitations. She is willing to pay more for a Medicare Advantage plan that offers broad provider access and well-organized care, making premium cost a secondary concern.",
+    "name": "Eleanor Brooks"
+  },
+  "response_id": "chatcmpl-E863667TFrWTUx4iTiKe7rTgsfcj9",
+  "created_at": "2026-08-01T15:36:26+00:00"
+}

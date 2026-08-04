@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a85_plus-middle-white-brand_loyal\nAge band: 85+\nIncome tier: middle\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: brand_loyal\nTraits: loyal to their current plan and provider relationships; satisfied with current care, slow to switch; oldest-old (85+); likely values simplicity, care coordination, and caregiver support; middle income; balances premium cost against benefit richness"
+  },
+  "response": {
+    "backstory": "Eleanor Price is an 87-year-old Medicare beneficiary living in Maricopa County, Arizona, with a middle-income retirement budget and no Medicaid eligibility. She is satisfied with her current Medicare Advantage plan and established provider relationships, preferring the reassurance of familiar coverage over the uncertainty of switching. Her day-to-day life centers on managing appointments, staying independent at home, and relying on family for occasional transportation and support. She values simple benefits, coordinated care, dependable caregiver assistance, and a reasonable balance between premium costs and richer coverage.",
+    "name": "Eleanor Price"
+  },
+  "response_id": "chatcmpl-E869gHCFCDNdBbs8rDFQIymsT2iut",
+  "created_at": "2026-08-01T15:43:15+00:00"
+}

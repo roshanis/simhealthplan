@@ -394,7 +394,9 @@ def test_transient_error_exhausts_retries_and_raises(tmp_path):
 # --------------------------------------------------------------------------
 
 
-def test_request_uses_temperature_zero_and_strict_json_schema(tmp_path):
+def test_request_omits_temperature_and_uses_strict_json_schema(tmp_path):
+    # gpt-5.6-luna 400s on any non-default temperature, so the client must
+    # not send the param at all (determinism comes from the cache).
     fake_client = FakeOpenAIClient([valid_completion()])
     llm = LLMClient(client=fake_client, model=MODEL, cache_dir=tmp_path, max_calls=10)
 
@@ -402,7 +404,7 @@ def test_request_uses_temperature_zero_and_strict_json_schema(tmp_path):
 
     call_kwargs = fake_client.completions.calls[0]
     assert call_kwargs["model"] == MODEL
-    assert call_kwargs["temperature"] == 0
+    assert "temperature" not in call_kwargs
     assert call_kwargs["messages"][0] == {"role": "system", "content": SYSTEM}
     assert call_kwargs["messages"][1] == {"role": "user", "content": USER}
 

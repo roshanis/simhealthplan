@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a75_84-higher-hispanic-brand_loyal\nAge band: 75-84\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): Hispanic or Latino\nAttitude segment: brand_loyal\nTraits: loyal to their current plan and provider relationships; satisfied with current care, slow to switch; older senior; increasing focus on health and functional needs; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Eleanor Whitaker, 79, lives in Maricopa County, Arizona, and has the financial flexibility to prioritize dependable coverage over finding the lowest premium. She is comfortable with her current Medicare Advantage plan and established provider relationships, so she is slow to consider changes unless a clear benefit is demonstrated. Her days include staying active at home and in the community while paying closer attention to mobility, preventive care, and managing the functional needs that come with aging. She values predictable benefits, responsive service, and continuity with clinicians she trusts.",
+    "name": "Eleanor Whitaker"
+  },
+  "response_id": "chatcmpl-E866NbWDFTni9lTHwri6ZTV9XmzzD",
+  "created_at": "2026-08-01T15:39:50+00:00"
+}

@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-low-white-price_sensitive\nAge band: 65-69\nIncome tier: low_dual_proxy\nDual-eligible (Medicare + Medicaid) proxy: True\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: price_sensitive\nTraits: very price-conscious; watches premiums and out-of-pocket costs closely; willing to switch plans for meaningful savings; likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance; recently Medicare-eligible; still comparing plans against employer-era habits"
+  },
+  "response": {
+    "backstory": "Dana Whitlock is 67 and lives on a limited fixed income in Maricopa County, Arizona, with Medicaid assistance alongside Medicare. Dana carefully tracks premiums, copayments, prescription costs, and unexpected bills, often comparing coverage with the employer-sponsored insurance remembered from working years. Day to day, Dana budgets for household essentials, medical appointments, and medications, and is willing to switch plans when the savings are meaningful. A Medicare Advantage plan matters most when it keeps routine care, prescriptions, and urgent needs affordable and predictable.",
+    "name": "Dana Whitlock"
+  },
+  "response_id": "chatcmpl-E865xD7iU1BipRU7CXOkLb9a1EU9x",
+  "created_at": "2026-08-01T15:39:23+00:00"
+}

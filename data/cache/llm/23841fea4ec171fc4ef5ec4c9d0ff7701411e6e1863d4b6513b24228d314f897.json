@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a70_74-higher-hispanic-brand_loyal\nAge band: 70-74\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): Hispanic or Latino\nAttitude segment: brand_loyal\nTraits: loyal to their current plan and provider relationships; satisfied with current care, slow to switch; established Medicare beneficiary with a few years of plan experience; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Eleanor Whitaker, 72, lives in Maricopa County, Arizona, and is financially comfortable enough that monthly premiums are less important to her than dependable coverage. As an established Medicare beneficiary with several years of plan experience, she is satisfied with her current plan and trusts the provider relationships she has built. She prefers familiar routines, reviews changes carefully, and is slow to switch unless her access to care or benefits changes substantially. In her day-to-day life, she values staying active, keeping appointments manageable, and knowing that her coverage will work as expected.",
+    "name": "Eleanor Whitaker"
+  },
+  "response_id": "chatcmpl-E868A3ef9uHdQM9gWHe5ddJMzUcmP",
+  "created_at": "2026-08-01T15:41:40+00:00"
+}

@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-low-hispanic-price_sensitive\nAge band: 65-69\nIncome tier: low_dual_proxy\nDual-eligible (Medicare + Medicaid) proxy: True\nRace/ethnicity (demographic context only -- see system instructions on names): Hispanic or Latino\nAttitude segment: price_sensitive\nTraits: very price-conscious; watches premiums and out-of-pocket costs closely; willing to switch plans for meaningful savings; likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance; recently Medicare-eligible; still comparing plans against employer-era habits"
+  },
+  "response": {
+    "backstory": "Dana Whitaker is 67 and lives in Maricopa County, Arizona, managing a limited income with help from Medicaid after recently becoming eligible for Medicare. She closely tracks premiums, copayments, prescription costs, and other out-of-pocket expenses, drawing on the budgeting habits she developed while working. Dana is willing to switch plans when the savings are meaningful, but wants coverage details explained clearly and prefers predictable costs. In a Medicare Advantage plan, affordable care, dependable benefits, and avoiding surprise bills matter most to her.",
+    "name": "Dana Whitaker"
+  },
+  "response_id": "chatcmpl-E869o6hWe5o2mtOLg3IWI5Fafq0fw",
+  "created_at": "2026-08-01T15:43:22+00:00"
+}

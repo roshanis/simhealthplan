@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a75_84-low-white-price_sensitive\nAge band: 75-84\nIncome tier: low_dual_proxy\nDual-eligible (Medicare + Medicaid) proxy: True\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: price_sensitive\nTraits: very price-conscious; watches premiums and out-of-pocket costs closely; willing to switch plans for meaningful savings; likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance; older senior; increasing focus on health and functional needs"
+  },
+  "response": {
+    "backstory": "Evelyn Hartley is 79 and lives on a limited fixed income in Maricopa County, Arizona, with Medicaid helping cover costs alongside Medicare. She carefully tracks premiums, copayments, prescriptions, and transportation expenses, and she would consider changing plans if the savings were meaningful and the benefits remained dependable. Her days center on managing arthritis, attending medical appointments, and keeping enough energy for simple household routines. She wants a Medicare Advantage plan with predictable costs, practical support for increasing functional needs, and no unpleasant billing surprises.",
+    "name": "Evelyn Hartley"
+  },
+  "response_id": "chatcmpl-E867XtcD0KsNa5rDBj6yoafNqwBCI",
+  "created_at": "2026-08-01T15:41:01+00:00"
+}

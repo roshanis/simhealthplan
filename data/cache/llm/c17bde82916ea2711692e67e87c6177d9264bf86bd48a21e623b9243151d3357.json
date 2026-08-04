@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a85_plus-middle-white-benefit_maximizer\nAge band: 85+\nIncome tier: middle\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: benefit_maximizer\nTraits: strongly values dental/vision/hearing extras; prioritizes rich supplemental benefits and OTC/flex allowances; oldest-old (85+); likely values simplicity, care coordination, and caregiver support; middle income; balances premium cost against benefit richness"
+  },
+  "response": {
+    "backstory": "Evelyn Park, age 88, lives in Maricopa County, Arizona, on a middle income that makes her attentive to monthly costs while still willing to pay for meaningful value. She carefully compares Medicare Advantage benefits and strongly favors generous dental, vision, hearing, over-the-counter, and flex allowances. Evelyn wants a simple plan with dependable care coordination, clear explanations, and support that helps her family caregiver manage appointments and paperwork. Staying independent, avoiding surprise expenses, and having practical extras that improve daily life matter most to her.",
+    "name": "Evelyn Park"
+  },
+  "response_id": "chatcmpl-E86cLLt9k3T70HBNfm6rYLbuV3873",
+  "created_at": "2026-08-01T16:12:51+00:00"
+}

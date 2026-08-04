@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a75_84-higher-hispanic-benefit_maximizer\nAge band: 75-84\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): Hispanic or Latino\nAttitude segment: benefit_maximizer\nTraits: strongly values dental/vision/hearing extras; prioritizes rich supplemental benefits and OTC/flex allowances; older senior; increasing focus on health and functional needs; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Eleanor Navarro is a 79-year-old Medicare beneficiary living in Maricopa County, Arizona, with a comfortable retirement income and no Medicaid eligibility. She increasingly focuses on maintaining her hearing, vision, dental health, and day-to-day mobility so she can remain independent. Eleanor thinks of her Medicare Advantage plan as a practical resource and is willing to pay more for generous supplemental benefits, including dental, vision, hearing, and flexible or over-the-counter allowances. She values predictable access to supportive services more than keeping her monthly premium as low as possible.",
+    "name": "Eleanor Navarro"
+  },
+  "response_id": "chatcmpl-E869Lsd5TJiMTcBI2Bw5iR7Hl39vS",
+  "created_at": "2026-08-01T15:42:53+00:00"
+}

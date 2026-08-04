@@ -1,0 +1,28 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "y2_choice_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You are role-playing a single fictional Medicare Advantage beneficiary persona in Maricopa County, Arizona, choosing among 2025 Medicare Advantage plan options. Answer strictly in character, from this persona's own point of view, using only the profile and plan information given below. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nYou must rank every single listed alternative (including the 'no 2025 MA plan' outside option) from most to least preferred, using each alternative's exact key exactly once in ranked_plan_keys. switching_propensity is this persona's own 0 (definitely stay in whatever 2025 plan continues their prior coverage) to 1 (definitely and actively switch away from it) estimate of how likely they are to leave their prior plan. rationale is 1-2 sentences, written in the first person, explaining the ranking.",
+    "user": "Archetype ID: a70_74-middle-white-benefit_maximizer\nPersona profile: Age band: 70-74. Income tier: middle. Not dual-eligible. Attitude segment: benefit_maximizer. Traits: strongly values dental/vision/hearing extras; prioritizes rich supplemental benefits and OTC/flex allowances; established Medicare beneficiary with a few years of plan experience; middle income; balances premium cost against benefit richness.\n\nMost likely 2024 coverage for beneficiaries like this persona: 54.1% no MA plan in 2024 (traditional Medicare or an unmodeled legacy plan); 6.9% AARP Medicare Advantage from UHC AZ-002P (HMO-POS); 6.1% Humana Gold Plus H0028-052 (HMO). (Outside/no-MA-plan share: 54.1%.)\n\n2025 plan alternatives to rank (plan_key -- plan name (type): attributes):\n1. H0609-027 -- AARP Medicare Advantage from UHC AZ-002P (HMO-POS) (HMO): $0.00/mo premium, $2,900 MOOP, star 4.5, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n2. H0028-074 -- Humana Gold Plus H0028-074 (HMO) (HMO): $0.00/mo premium, $2,900 MOOP, star 3.5, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n3. H0354-028 -- Cigna Alliance Medicare (HMO) (HMO): $0.00/mo premium, $2,300 MOOP, star 4.0, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n4. H0609-026 -- AARP Medicare Advantage Essentials from UHC AZ-2 (HMO-POS) (HMO): $0.00/mo premium, $2,900 MOOP, star 4.5, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n5. H0354-001 -- Cigna Preferred Medicare (HMO) (HMO): $0.00/mo premium, $2,900 MOOP, star 4.0, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n6. H5843-001 -- Banner Medicare Advantage Prime (HMO) (HMO): $0.00/mo premium, $2,995 MOOP, star 3.5, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n7. H0351-063 -- Wellcare Simple (HMO) (HMO): $0.00/mo premium, $2,500 MOOP, star 3.0, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n8. H0354-029 -- Cigna Preferred Savings Medicare (HMO) (HMO): $0.00/mo premium, $3,300 MOOP, star 4.0, Dental: yes, Vision: yes, Hearing aids: yes, OTC/flex: yes\n9. other_or_no_ma_2025 -- No 2025 Medicare Advantage plan (traditional Medicare, or coverage outside this county's modeled 2025 MA lineup)"
+  },
+  "response": {
+    "ranked_plan_keys": [
+      "H0609-027",
+      "H0354-028",
+      "H0609-026",
+      "H0354-001",
+      "H0028-074",
+      "H0351-063",
+      "H5843-001",
+      "H0354-029",
+      "other_or_no_ma_2025"
+    ],
+    "rationale": "I prefer the AARP plan because it combines a high star rating, all the extras I value, and continuity with likely prior coverage; I would next favor the lowest-MOOP options. I strongly prefer a $0-premium MA plan with dental, vision, hearing, and OTC/flex benefits over going without modeled MA coverage.",
+    "switching_propensity": 0.28
+  },
+  "response_id": "chatcmpl-E865DCCqfIM467gc9tJOwstYTtIRU",
+  "created_at": "2026-08-01T15:38:39+00:00"
+}

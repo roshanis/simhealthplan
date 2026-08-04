@@ -60,39 +60,6 @@ backtest:
 diagnostics:
 	cd pipeline && uv run python -m backtest.diagnostics
 
-## Export the diagnostics artifact into the app (app/src/data/diagnostics.json)
-## for the report's evaluation-diagnostics panel. Kept separate from `export`
-## on purpose: `export` needs the data/interim/ crosswalk (see below) and so
-## cannot run in a fresh clone, whereas this reads only
-## data/processed/backtest_diagnostics.json and always can.
-export-diagnostics:
-	cd pipeline && uv run python -m export.export_diagnostics
-
-## --- Phase 6/7: export & parity fixtures ---
-
-## Export the committed data/processed/*.json artifacts into six small,
-## deterministic, UI-ready JSON files under app/src/data/ (market.json,
-## backtest.json, archetypes.json, coefficients.json, scenario_inputs.json,
-## personas.json). NOTE: in addition to data/processed/*.json, this also
-## reads data/interim/plan_crosswalk_2024_2025.parquet (via
-## choice_model.predict.load_crosswalk_map, needed for scenario_inputs.json)
-## -- if `make ingest` hasn't been run to produce that file, this fails with
-## a FileNotFoundError rather than silently skipping. `make ingest` needs
-## network access to CMS/Census hosts, so this target cannot succeed in a
-## network-restricted environment/clone until that file has been produced
-## elsewhere and placed at data/interim/plan_crosswalk_2024_2025.parquet.
+## Export trimmed, UI-ready JSON bundles from data/processed into app/src/data.
 export:
 	cd pipeline && uv run python -m export.export_artifacts
-
-## Regenerate the Python <-> TypeScript golden parity fixture
-## (shared/golden/parity_fixture.json), consumed by both
-## pipeline/tests/test_golden_parity.py and app/tests/parity.test.ts to keep
-## the TS choice-model port (app/src/lib/choice-model/) numerically
-## identical to the Python original. Deliberately kept as its own target
-## rather than folded into `export`: it writes to shared/golden/, not
-## app/src/data/, and it only reads data/processed/{coefficients,
-## archetypes,plans_2025}.json -- no data/interim/ crosswalk dependency --
-## so it can regenerate even when `export` cannot (e.g. before `make
-## ingest` has ever been run, or in a network-restricted environment).
-golden:
-	cd pipeline && uv run python -m export.golden_fixture

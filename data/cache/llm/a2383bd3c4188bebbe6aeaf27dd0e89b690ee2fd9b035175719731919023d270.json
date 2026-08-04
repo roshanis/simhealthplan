@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a85_plus-low-mixed-mixed\nAge band: 85+\nIncome tier: low_dual_proxy\nDual-eligible (Medicare + Medicaid) proxy: True\nRace/ethnicity (demographic context only -- see system instructions on names): a mixed/aggregated demographic group (this archetype is a catch-all, not one specific background)\nAttitude segment: mixed\nTraits: attitude profile spans multiple segments (aggregated catch-all archetype); likely dual-eligible or near-dual-eligible; highly cost-sensitive by circumstance; oldest-old (85+); likely values simplicity, care coordination, and caregiver support"
+  },
+  "response": {
+    "backstory": "Evelyn Hart, age 89, lives on a limited fixed income in Maricopa County, Arizona, and relies on Medicare with Medicaid assistance to manage essential expenses. She wants coverage costs to be predictable and worries about unexpected bills, transportation, and arranging appointments across different providers. Evelyn values a simple Medicare Advantage plan with coordinated care, dependable prescription coverage, and support that keeps her daughter informed without making her feel powerless. Staying safely at home, maintaining her independence, and avoiding confusing paperwork matter most to her.",
+    "name": "Evelyn Hart"
+  },
+  "response_id": "chatcmpl-E862soml0lNhOz7PP3TP9IqB0VKqH",
+  "created_at": "2026-08-01T15:36:12+00:00"
+}

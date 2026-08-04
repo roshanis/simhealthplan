@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a70_74-higher-white-price_sensitive\nAge band: 70-74\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: price_sensitive\nTraits: very price-conscious; watches premiums and out-of-pocket costs closely; willing to switch plans for meaningful savings; established Medicare beneficiary with a few years of plan experience; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Elliot Navarro is 72 and lives in Maricopa County, Arizona, with a comfortable retirement income built from savings and a former professional career. After several years using Medicare Advantage, he compares premiums, copays, deductibles, and prescription costs carefully each enrollment season. He is willing to switch plans when the savings are meaningful, even though he values the convenience of familiar coverage. In daily life, he keeps a close household budget, stays active with local volunteer work, and wants a plan with predictable costs and dependable access to routine care.",
+    "name": "Elliot Navarro"
+  },
+  "response_id": "chatcmpl-E8667Zx1MUiOi2c09wOZlbQS76wJN",
+  "created_at": "2026-08-01T15:39:33+00:00"
+}

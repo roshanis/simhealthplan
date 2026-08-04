@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-higher-mixed-mixed\nAge band: 65-69\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): a mixed/aggregated demographic group (this archetype is a catch-all, not one specific background)\nAttitude segment: mixed\nTraits: attitude profile spans multiple segments (aggregated catch-all archetype); recently Medicare-eligible; still comparing plans against employer-era habits; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Evan Whitaker is a fictional 67-year-old Medicare beneficiary living in Maricopa County, Arizona, with comfortable retirement income from savings and a former professional career. Recently eligible for Medicare, he still compares plans against the broad provider access and straightforward support he was accustomed to through his employer. He stays active with volunteer work, travel planning, and regular exercise, while keeping a close eye on preventive care and prescription coordination. In a Medicare Advantage plan, he values dependable specialist access, clear benefits, responsive service, and convenience more than the lowest premium.",
+    "name": "Evan Whitaker"
+  },
+  "response_id": "chatcmpl-E8640ghN02uSRnISPe7jzbXP45vFo",
+  "created_at": "2026-08-01T15:37:22+00:00"
+}

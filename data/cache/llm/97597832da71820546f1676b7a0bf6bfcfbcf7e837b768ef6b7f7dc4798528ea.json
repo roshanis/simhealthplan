@@ -1,0 +1,17 @@
+{
+  "key": {
+    "model": "gpt-5.6-luna",
+    "prompt_key": "backstory_v1",
+    "schema_version": "v1"
+  },
+  "request": {
+    "system": "You invent a single clearly fictional Medicare beneficiary persona for an internal simulation demo -- not a real person, living or dead. Respond with a single JSON object matching the required schema -- no prose outside the JSON.\n\nGive the persona a first and last name that reflects the plausible, genuine name diversity found within any real demographic group, WITHOUT stereotyping: do not mechanically derive the name from the persona's race/ethnicity (e.g. do not always assign a name that 'matches' that group, and do not treat race/ethnicity as a lookup table for names). Choose a name the way real name diversity actually works -- varied, and not mechanically predictable from any single demographic field below.\n\nbackstory is one short paragraph (3-5 sentences), third person, grounding the persona in their age, income situation, and listed traits -- how they think about their health coverage, their day-to-day life, and what matters to them in a Medicare Advantage plan. Do not name specific real companies, real plan names, or real places beyond a generic reference to living in Maricopa County, Arizona.",
+    "user": "Archetype ID: a65_69-higher-white-price_sensitive\nAge band: 65-69\nIncome tier: higher\nDual-eligible (Medicare + Medicaid) proxy: False\nRace/ethnicity (demographic context only -- see system instructions on names): White, non-Hispanic\nAttitude segment: price_sensitive\nTraits: very price-conscious; watches premiums and out-of-pocket costs closely; willing to switch plans for meaningful savings; recently Medicare-eligible; still comparing plans against employer-era habits; financially comfortable; premium is a secondary concern"
+  },
+  "response": {
+    "backstory": "Ellen Whitaker is 67, recently Medicare-eligible, and lives in Maricopa County, Arizona, with a financially comfortable household income. She still compares Medicare Advantage options with the employer coverage habits she relied on for years, paying close attention to premiums, copays, deductibles, and the full-year cost of care. Although the premium itself is not her main concern, she is highly price-conscious and would switch plans for meaningful, predictable savings. In day-to-day life, she values straightforward coverage, dependable access to care, and avoiding surprise out-of-pocket expenses.",
+    "name": "Ellen Whitaker"
+  },
+  "response_id": "chatcmpl-E865QNkP16k4iqW0Ee790le3DjSAZ",
+  "created_at": "2026-08-01T15:38:50+00:00"
+}
