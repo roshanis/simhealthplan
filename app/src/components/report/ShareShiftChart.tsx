@@ -34,7 +34,7 @@ const PLOT_WIDTH = 480;
 const CHART_WIDTH = LABEL_COL_WIDTH + PLOT_WIDTH + 24;
 
 function naiveLabel(variant: NaiveVariant): string {
-  return variant === "no_change" ? "no-change" : "trend";
+  return variant === "no_change" ? "no change" : "trend";
 }
 
 const ppLabel = formatSignedPP;
@@ -213,7 +213,7 @@ function Legend({ bestNaive }: { bestNaive: NaiveVariant }) {
       </li>
       <li className="flex items-center gap-1.5">
         <span className="inline-block h-0.5 w-3" style={{ background: "var(--text-muted)" }} />
-        Best naive baseline ({naiveLabel(bestNaive)})
+        Simple baseline ({naiveLabel(bestNaive)})
       </li>
     </ul>
   );

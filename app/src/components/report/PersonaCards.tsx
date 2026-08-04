@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * "Meet the market" -- browsable cards, one per synthetic archetype.
+ * "The simulated population" -- browsable cards, one per synthetic archetype.
  * Filter row (segment, age band) sits above the grid per the dataviz
  * skill's interaction rules ("one row, above the charts, never per-card").
  * Cards paginate client-side (12 at a time) rather than rendering all 80 at
@@ -54,10 +54,10 @@ export function PersonaCards({
       )}
 
       <div className="flex flex-wrap items-center gap-3">
-        <FilterSelect label="Attitude segment" value={segmentFilter} onChange={setSegmentFilter} options={segments} />
+        <FilterSelect label="Attitude" value={segmentFilter} onChange={setSegmentFilter} options={segments} />
         <FilterSelect label="Age band" value={ageFilter} onChange={setAgeFilter} options={ageBands} />
         <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-          {filtered.length} of {cards.length} archetypes
+          {filtered.length} of {cards.length} profiles
         </span>
       </div>
 
@@ -172,7 +172,7 @@ function PersonaCard({ card }: { card: PersonaCardViewModel }) {
             </div>
           )}
           <p style={{ color: "var(--text-muted)" }}>
-            {card.outsideShareLabel} prior probability of no MA plan / traditional Medicare.
+            {card.outsideShareLabel} chance of staying on traditional Medicare (no MA plan).
           </p>
         </div>
       )}

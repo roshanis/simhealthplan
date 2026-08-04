@@ -9,7 +9,7 @@ heavy parsing.
 
 from __future__ import annotations
 
-from parse import benefits, census_acs, cpsc, crosswalks, landscape, mcbs, penetration
+from parse import benefits, census_acs, cpsc, crosswalks, landscape, mcbs, penetration, physicians
 
 
 def main() -> None:
@@ -45,6 +45,15 @@ def main() -> None:
     print("--- parse: mcbs ---")
     inventory, subset = mcbs.run()
     print(f"  mcbs_subset: {subset.shape[0]} rows x {subset.shape[1]} columns")
+
+    print("--- parse: physicians ---")
+    phys_df, phys_summary = physicians.run()
+    phys_totals = phys_summary["totals"]
+    print(
+        f"  physicians_maricopa: {len(phys_df)} rows, "
+        f"{phys_totals['clinicians']:,} clinicians, "
+        f"{phys_totals['organizations']:,} organizations"
+    )
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * "The world the personas live in" -- a sortable 2024/2025 plan-roster
+ * "The plans they chose from" -- a sortable 2024/2025 plan-roster
  * table plus headline market facts. Client component for the year toggle +
  * column sort; data itself comes from the server-rendered page's
  * `market.json` import (passed down as props, not fetched).

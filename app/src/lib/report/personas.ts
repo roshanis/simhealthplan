@@ -1,5 +1,5 @@
 /**
- * Pure view-model builder for the "Meet the market" persona cards section.
+ * Pure view-model builder for "The simulated population" persona cards section.
  *
  * Until `data/processed/personas.json` exists (the LLM backstory pass hasn't
  * run yet, see `pipeline/llm/run_persona_pass.py`), every card falls back to

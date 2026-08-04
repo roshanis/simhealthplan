@@ -19,7 +19,10 @@ import backtestRaw from "@/data/backtest.json";
 import coefficientsRaw from "@/data/coefficients.json";
 import diagnosticsRaw from "@/data/diagnostics.json";
 import marketRaw from "@/data/market.json";
+import networkInputsRaw from "@/data/network_inputs.json";
+import networkStandardsRaw from "@/data/network_standards.json";
 import personasRaw from "@/data/personas.json";
+import physiciansRaw from "@/data/physicians.json";
 import scenarioInputsRaw from "@/data/scenario_inputs.json";
 import type { CoefficientsFile } from "@/lib/choice-model/types";
 import type {
@@ -27,7 +30,10 @@ import type {
   BacktestData,
   DiagnosticsFile,
   MarketData,
+  NetworkInputsFile,
+  NetworkStandardsFile,
   PersonasFile,
+  PhysiciansFile,
   ScenarioInputsFile,
 } from "@/lib/data/types";
 
@@ -36,6 +42,9 @@ export const backtest = backtestRaw as unknown as BacktestData;
 export const archetypesDisplay = archetypesRaw as unknown as ArchetypesDisplayFile;
 export const coefficients = coefficientsRaw as unknown as CoefficientsFile;
 export const personas = personasRaw as unknown as PersonasFile;
+export const physicians = physiciansRaw as unknown as PhysiciansFile;
+export const networkInputs = networkInputsRaw as unknown as NetworkInputsFile;
+export const networkStandards = networkStandardsRaw as unknown as NetworkStandardsFile;
 export const scenarioInputs = scenarioInputsRaw as unknown as ScenarioInputsFile;
 // `diagnostics.json` (`make export-diagnostics`) is always exported alongside the
 // other Phase 7 artifacts -- unlike `personas.json` it has no `available` flag to

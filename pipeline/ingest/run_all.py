@@ -10,7 +10,7 @@ cheap once the cache is warm.
 
 from __future__ import annotations
 
-from ingest import census_acs, cpsc, crosswalks, landscape, mcbs, pbp_benefits, penetration
+from ingest import census_acs, cpsc, crosswalks, landscape, mcbs, pbp_benefits, penetration, physicians
 
 
 def main() -> None:
@@ -22,6 +22,7 @@ def main() -> None:
         ("crosswalks", crosswalks.ingest_all),
         ("mcbs", mcbs.ingest),
         ("census_acs", census_acs.ingest),
+        ("physicians", physicians.ingest_all),
     ]
     for name, fn in steps:
         print(f"--- ingest: {name} ---")

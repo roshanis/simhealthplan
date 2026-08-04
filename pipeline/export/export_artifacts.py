@@ -2,7 +2,7 @@
 
 Reads the committed ``data/processed/*.json`` artifacts (plus, via
 ``choice_model.predict``'s crosswalk logic, ``data/interim/
-plan_crosswalk_2024_2025.parquet``) and writes six small, deterministic,
+plan_crosswalk_2024_2025.parquet``) and writes eight small, deterministic,
 UI-ready JSON files into ``app/src/data/``:
 
   * ``market.json`` -- both years' plan rosters (trimmed to display fields),
@@ -30,6 +30,15 @@ UI-ready JSON files into ``app/src/data/``:
     that file exists; ``{"available": false, "personas": []}`` otherwise
     (the LLM pass hasn't run yet as of this writing -- every consumer must
     handle this gracefully and light up automatically once it has).
+  * ``physicians.json`` -- passthrough of ``data/processed/physicians.json``
+    (Maricopa physician-supply summary from the CMS Doctors & Clinicians
+    roster) with the same ``available`` flag contract as personas.json.
+    Descriptive context only -- CMS publishes no physician<->plan-network
+    linkage, so this never feeds the choice model.
+  * ``network_inputs.json`` -- passthrough of ``data/processed/
+    network_inputs.json`` (top medical groups x specialty x ZCTA presence,
+    for the hypothetical network-designer page), same ``available`` flag
+    contract.
 
 Every ``build_*`` function below is pure (plain dicts/lists in, plain dict
 out) and unit-tested against small synthetic fixtures; ``build_all`` is the
@@ -352,6 +361,45 @@ def build_personas(personas_file: dict | None) -> dict:
     }
 
 
+# --- physicians.json -------------------------------------------------------------------
+
+
+def build_physicians(physicians_file: dict | None) -> dict:
+    """`data/processed/physicians.json` (if it exists) -> physicians.json's
+    dict shape, with `available: true` added; `{"available": false, ...}`
+    when `physicians_file` is `None` (the DAC ingest+parse hasn't run yet).
+    Same graceful-absence contract as personas.json: every consumer must
+    handle `available: false` and light up automatically once the pipeline
+    has run."""
+    if physicians_file is None:
+        return {
+            "available": False,
+            "totals": None,
+            "top_specialties": [],
+            "top_organizations": [],
+        }
+    return {
+        "available": True,
+        "metadata": physicians_file.get("metadata", {}),
+        "totals": physicians_file.get("totals"),
+        "top_specialties": physicians_file.get("top_specialties", []),
+        "top_organizations": physicians_file.get("top_organizations", []),
+    }
+
+
+def build_network_inputs(network_inputs_file: dict | None) -> dict:
+    """`data/processed/network_inputs.json` (if it exists) -> the app's
+    network_inputs.json, same available-flag contract as personas/physicians."""
+    if network_inputs_file is None:
+        return {"available": False, "zctas": [], "organizations": []}
+    return {
+        "available": True,
+        "metadata": network_inputs_file.get("metadata", {}),
+        "zctas": network_inputs_file.get("zctas", []),
+        "organizations": network_inputs_file.get("organizations", []),
+    }
+
+
 # --- real-file I/O -------------------------------------------------------------------
 
 
@@ -390,6 +438,12 @@ def build_all(processed_dir: Path | None = None, app_data_dir: Path | None = Non
     personas_path = src_dir / "personas.json"
     personas_file = _load_json(personas_path) if personas_path.exists() else None
 
+    physicians_path = src_dir / "physicians.json"
+    physicians_file = _load_json(physicians_path) if physicians_path.exists() else None
+
+    network_inputs_path = src_dir / "network_inputs.json"
+    network_inputs_file = _load_json(network_inputs_path) if network_inputs_path.exists() else None
+
     crosswalk_map = predict.load_crosswalk_map()
 
     artifacts = {
@@ -404,6 +458,8 @@ def build_all(processed_dir: Path | None = None, app_data_dir: Path | None = Non
             crosswalk_map,
         ),
         "personas.json": build_personas(personas_file),
+        "physicians.json": build_physicians(physicians_file),
+        "network_inputs.json": build_network_inputs(network_inputs_file),
     }
 
     for filename, data in artifacts.items():
